@@ -1,0 +1,6965 @@
+/*
+Theme Name: NM Neo Selene
+Author: Nacho Macías
+Author URI: https://nachomacias.com
+Description: Theme Diseñado para Inmobiliarias
+Version: 1.2
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: nm-neo-selene
+*/
+
+
+
+/****************************** 
+ *  Root - Variables - HTML
+ *******************************/
+
+ :root {
+    /* Tipografía */
+    --tipo-encabezado: 'Montserrat';
+    --tipo-parrafo: 'Poppins';
+
+    /* Colores */
+    --primary: #07272d;
+    /* --primary: #F4f7f9; */
+    --primary-translucid: rgba(21,60,68,0.67);
+    --primary-color-translucid: rgba(103, 122, 143, 0.603);
+    --secondary: #D3BC8D;
+    --tertiary: #8d765e;
+    --tertiary-w-opacity: #8d765eb6;
+    --quaternary-color: #756553;
+    --quaternary-color-w-opacity: #75655340;
+    --quinary-color: #d9b770;
+    --color-white: #fff;
+    --color-white-w-opacity: #ffffff2e;
+    --color-black: #000000;
+    --color-soft-black: #222222;
+    --color-black-w-opacity: #00000066;
+    --color-grey-red: #978787;
+    --color-black-light: #5b5b5b;
+    --color-light-grey: #f1f1f1;
+    --color-soft-grey: #f5f5f5;
+    --color-old-footer: #3E3B37;  
+    --font-black: #222222;
+
+    /* Margenes - Alturas */
+
+    /* --main-nav-height: 8.5rem;*/ /* navigation apaisada */
+    --main-nav-height: 11rem; /* navigation vertical */
+  }
+
+
+  
+/************/
+/* GLOBALES */
+/************/
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    vertical-align: baseline;
+}
+
+
+html {
+    font-size: 62.5%; /* Facilita el cálculo a rems 1rem=10px */
+    /* overflow-x: hidden;  */
+}
+
+
+
+/* Imágenes */
+
+img, picture, video, iframe, figure {
+    max-width: 100%;
+    width: initial; /* Si indico 100% es incompatible con Safari y navegador móvil */
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+}
+
+
+/* Enlaces */
+
+a {
+    display: block;
+}
+
+p a {
+    display: inline;
+}
+
+
+/* Listas */
+
+li {
+    list-style-type: none;
+}
+
+/* Configuramos anclas suaves */
+
+html {
+    scroll-behavior: smooth;
+    overscroll-behavior: auto;
+}
+
+/* Desactivar estilos por defecto en etiquetas */
+
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em, li {
+    font-size: 1rem;
+    font-weight: 200;
+    font-style: inherit;
+    text-decoration: none;
+    color: inherit;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--tipo-encabezado);
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+p, strong, li, span {
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+    font-weight: 300;
+}
+
+
+
+strong {
+    font-weight: 600;
+}
+
+strong span {
+    font-weight: 600;    
+}
+
+.versalitas {
+    font-variant: small-caps;
+    letter-spacing: 0.03em;    
+}
+
+.text__align__left {
+    text-align: left;
+}
+
+
+.text__align__center {
+    text-align: center;
+}
+
+.text__align__justify {
+    text-align: justify;
+}
+
+
+
+.btn.nm__button__property {
+    background-color: grey;
+    color: var(--color-white);
+    border: solid 0.1rem grey;
+    margin: 2rem auto 0rem auto;
+}
+
+.btn.nm__button__property:active {
+    background-color: grey;
+    color: var(--color-white);
+}
+
+.btn.nm__button__property:hover {
+    border: solid 0.1rem grey;
+    background-color: transparent;
+}
+
+
+.property-header .property-description {
+    margin-top: 5rem;
+}
+
+
+
+.borde-degradado {
+  /* padding: 10px; */
+  /* border: 5px solid transparent;
+  border-radius: 10px;
+  background: 
+    linear-gradient(white, white) padding-box, 
+    linear-gradient(0deg, var(--primary), #07272d91) border-box;  */
+}
+
+
+
+/* Evitar problemas con los pseudoelementos de quotes */
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+}
+
+/* Configuramos el texto seleccionado */
+::selection {
+    background-color: var(--color);
+    color: var(--color);
+}
+
+/* Nivelar problemas de tipografías y colocación en formularios */
+
+form, input, textarea, select, button, label {
+    font-family: inherit;
+    font-size: inherit;
+    hyphens: auto;
+    background-color: transparent;
+    display: block;
+    color: inherit;
+}
+
+/* Reseteamos las tablas */
+
+table, tr, td {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Evitar problemas con SVG */
+svg {
+    width: 100%;
+    display: block;
+    fill: currentColor;
+}
+
+/* Configuramos la tipografía de toda la web */
+body {
+    
+    font-family: var(--tipo-parrafo);
+
+    color: var(--color-black);
+    background: var(--color-white);
+    line-height: 1.4rem;
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+      
+}
+
+/* Esconder scrollbars */
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+*::-webkit-scrollbar {
+    display: none!important;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  * {
+    -ms-overflow-style: none!important;  /* IE and Edge */
+    scrollbar-width: none!important;  /* Firefox */
+  }
+
+
+
+
+  .w-sm-80 {
+    width: 80%;
+}
+
+
+  .bg-tertiary {
+    background-color: var(--primary);
+    color: var(--color-white);
+  }
+
+  .btn {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+    background-color: grey;
+    border: none;
+}
+.py-2 {
+    padding-top: .5rem !important;
+    padding-bottom: .5rem !important;
+}
+.px-4 {
+    padding-right: 1.5rem !important;
+    padding-left: 1.5rem !important;
+}
+.w-100 {
+    width: 100% !important;
+}
+
+
+.nm-mt-1 {
+    margin-top: 1rem;
+}
+.nm-mt-2 {
+    margin-top: 2rem;
+}
+.nm-mt-3 {
+    margin-top: 3rem;
+}
+.nm-mt-4 {
+    margin-top: 4rem;
+}
+.nm-mt-5 {
+    margin-top: 5rem;
+}
+
+.nm-mr-1 {
+    margin-right: 1rem;
+}
+.nm-mr-2 {
+    margin-right: 2rem;
+}
+.nm-mr-3 {
+    margin-right: 3rem;
+}
+.nm-mr-4 {
+    margin-right: 4rem;
+}
+.nm-mr-5 {
+    margin-right: 5rem;
+}
+
+.nm-mb-1 {
+    margin-bottom: 1rem;
+}
+.nm-mb-2 {
+    margin-bottom: 2rem;
+}
+.nm-mb-3 {
+    margin-bottom: 3rem;
+}
+.nm-mb-4 {
+    margin-bottom: 4rem;
+}
+.nm-mb-5 {
+    margin-bottom: 5rem;
+}
+
+.nm-ml-1 {
+    margin-left: 1rem;
+}
+.nm-ml-2 {
+    margin-left: 2rem;
+}
+.nm-ml-3 {
+    margin-left: 3rem;
+}
+.nm-ml-4 {
+    margin-left: 4rem;
+}
+.nm-ml-5 {
+    margin-left: 5rem;
+}
+
+
+.nm-pt-1 {
+    padding-top: 1rem;
+}
+.nm-pt-2 {
+    padding-top: 2rem;
+}
+.nm-pt-3 {
+    padding-top: 3rem;
+}
+.nm-pt-4 {
+    padding-top: 4rem;
+}
+.nm-pt-5 {
+    padding-top: 5rem;
+}
+
+.nm-pr-1 {
+    padding-right: 1rem;
+}
+.nm-pr-2 {
+    padding-right: 2rem;
+}
+.nm-pr-3 {
+    padding-right: 3rem;
+}
+.nm-pr-4 {
+    padding-right: 4rem;
+}
+.nm-pr-5 {
+    padding-right: 5rem;
+}
+
+.nm-pb-1 {
+    padding-bottom: 1rem;
+}
+.nm-pb-2 {
+    padding-bottom: 2rem;
+}
+.nm-pb-3 {
+    padding-bottom: 3rem;
+}
+.nm-pb-4 {
+    padding-bottom: 4rem;
+}
+.nm-pb-5 {
+    padding-bottom: 5rem;
+}
+
+.nm-pl-1 {
+    padding-left: 1rem;
+}
+.nm-pl-2 {
+    padding-left: 2rem;
+}
+.nm-pl-3 {
+    padding-left: 3rem;
+}
+.nm-pl-4 {
+    padding-left: 4rem;
+}
+.nm-pl-5 {
+    padding-left: 5rem;
+}
+
+
+
+
+
+
+
+/* Bootstrap reset */
+
+.container-fluid {
+    width: 100vw!important;
+}
+
+.row {
+    width: 100%;
+    margin: 0!important;
+}
+
+.nav {
+    width: 100vw!important;
+}
+
+
+.nm-nav {
+    width: 100vw!important;
+    transition: all 0.5s;
+    background-color: var(--color-white);
+}
+
+.btn-primary {
+    background-color: var(--secondary);
+    color: var(--color-white);
+}
+
+
+.btn-primary:hover {
+    background-color: var(--color-white);
+    color: var(--color-black);
+}
+
+
+
+
+
+
+
+/* Bootstrap 5 columns */
+
+/* .col-xs-5,
+
+.col-sm-5,
+
+.col-md-5,
+
+.col-lg-5 {
+
+  min-height: 1px;
+  position: relative;
+
+} */
+
+/* .col-xs-5 {
+  float: left;
+  width: 20%;
+}
+ */
+
+
+
+/* Varios */
+
+.hide {
+    display: none!important;
+}
+
+.columna {
+    z-index: 999;
+}
+
+.linea {
+    width: 20%; /* Define la anchura de la línea */
+    border: none; /* Elimina el borde predeterminado */
+    height: 2px; /* Define el grosor de la línea */
+    background-color: black; /* Color de la línea */
+    margin: 20px auto 20px 0; /* Centra la línea */
+}
+
+.nm__container {
+    margin: 0 2rem;
+}
+
+.custom__mb {
+    margin-bottom: 4rem;
+}
+
+.nm__textalign__center {
+    text-align: center;
+}
+
+.nm__img__borderradius {
+    border-radius: 2rem;
+}
+
+.nm__space__between__columns__right {
+    padding-right: 0rem;
+}
+
+.propertie_content .details p,
+.propertie_content .details .content-detail span {
+    text-align: left;    
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+}
+
+.normal__weight {
+    font-weight: normal;
+}
+
+
+/***************/
+/*  PRELOADER  */
+/***************/
+
+
+#page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: var(--primary) none repeat scroll 0% 0%;
+    z-index: 99999;
+    }
+    #page-loader .preloader-interior {
+        display: block;
+        position: relative;
+        left: 50%;
+        top: 50%;
+        width: 150px;
+        height: 150px;
+        margin: -75px 0 0 -75px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: var(--secondary);
+     
+        -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+              animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+    }
+    #page-loader .preloader-interior:before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: var(--tertiary);
+     
+        -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+          animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+    }
+     
+    #page-loader .preloader-interior:after {
+        content: "";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: var(----quaternary-color);
+     
+        -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+          animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+    }
+     
+    @-webkit-keyframes spin {
+        0%   { 
+            -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: rotate(0deg);  /* IE 9 */
+            transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+        }
+        100% {
+            -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: rotate(360deg);  /* IE 9 */
+            transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+        }
+    }
+    @keyframes spin {
+        0%   { 
+            -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: rotate(0deg);  /* IE 9 */
+            transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+        }
+        100% {
+            -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: rotate(360deg);  /* IE 9 */
+            transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+        }
+    }
+
+
+
+
+/************/
+/*  HEADER  */
+/************/
+
+header {
+    background: transparent; 
+}
+
+
+
+
+/*    Navigation     */
+/*-------------------*/
+
+
+nav {
+    position: fixed;
+    height: var(--main-nav-height);
+    width: 100%; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    /* padding-top: 4rem; */
+    z-index: 99999;
+}
+
+.nav {
+    flex-wrap: nowrap!important;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    width: auto;
+    margin: 0;
+}
+
+
+.logo.logo__nav__apaisada {
+        display: block;
+    }
+
+.logo.logo__nav__vertical {
+    display: none;
+}
+
+
+
+.logo {
+    margin-left: 2rem;
+    margin-top: 0rem;
+    height: 6rem;
+    z-index: 100010;
+    transition: all 0.5s;
+}
+
+
+
+/*  Hamburguer Menu  */
+/*-------------------*/
+
+.hamburger-btn {
+    width: 2.5rem;
+    margin-right: 3rem;
+    margin-top: 0rem;
+    cursor: pointer;
+    z-index: 1000010;
+}
+
+
+.hamburger-btn span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin-right: 40px;
+    background-color: #18327a;
+    border-radius: 2px;
+    -webkit-transition: background-color .15s ease-in-out;
+    -o-transition: background-color .15s ease-in-out;
+    transition: background-color .15s ease-in-out;
+    transform-origin: 0px 100%;
+    transition: all 300ms;
+}
+
+/* Cambio de color en páginas con fondo blanco */
+
+.hamburger-btn.ch__color span {
+    background-color: var(--tertiary);
+}
+
+.hamburger-btn span:nth-child(2) {
+    margin: 6px 0;
+} 
+
+.activeline1__bars-menu {
+    transform: rotate(45deg) translate(-2px, 1px);
+}
+
+.activeline2__bars-menu {
+    opacity: 0;
+    margin-left: -30px;
+}
+
+.activeline3__bars-menu {
+    transform: rotate(-45deg) translate(-2px, 0px);
+}
+
+.nav-list {
+    position: fixed;
+    width: 100%;
+    height: 0vh;
+    top: 0px;
+    background: var(--color-white);
+    /* float: right; */
+    text-align: left;
+    transition: all .5s;
+    z-index: -1;
+    padding-left: 0!important;
+}
+
+
+
+.nav-list li { 
+    opacity: 0;
+    display: none;
+    /* line-height: 10px; */
+    margin: 1.8rem 0 0 10%;
+    transition: all 0.5s; 
+}
+
+.nav-list li:nth-child(1) {
+    margin-top: 18rem;
+}
+
+
+.sub-menu li {
+    margin: 0.5rem 0 0 0;
+}
+
+
+
+.nav-list li a {
+    font-family: var(--tipo-encabezado);
+    /* font-size: 1.2rem; */
+    width: max-content; /* Hago que el ancho de la etiqueta sea igual al contenido de la misma */ 
+    color: var(--color-black);
+    font-size: 1.5rem;    
+    font-weight: 500;
+    letter-spacing: 0.4rem;
+    text-transform: uppercase;
+    padding-bottom: 0.1rem;
+    --clippy: polygon(0 0, 0 0, 0 100%, 0 100%);
+}
+
+
+
+.nav-list li a.active, .nav-list li a:hover, .nav-list .current-menu-item a {
+    color: var(--tertiary);
+    font-weight: 600; 
+    transition: 0.5s;
+    --clippy: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+} 
+
+.nav-list li a:after {
+    content:"";
+    display: block;
+    background: var(--secondary);
+    width: 100%;
+    margin-top: 4px;
+    height: 1px;
+    clip-path: var(--clippy);
+    transition: clip-path .5s;
+}
+
+.nav-list .sub-menu {
+    display: flex;
+    flex-direction: column;
+        
+}
+
+.nav__label {
+    display: block;
+    font-size: 30px;
+    color: var(--color-white);
+    float: right;
+    line-height: 75px;
+    margin-right: 40px;
+    cursor: pointer;
+}
+
+#check {
+    display: none;
+}
+
+#check:checked ~ .nav-list {
+    height: 100vh;
+}
+
+
+#check:checked ~ .nav-list li {
+    opacity: 1;
+    display: block;
+}
+
+
+#check:checked ~ .nav-list .sub-menu li a {
+    font-family: var(--tipo-parrafo);
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-style: italic;
+}
+
+#check:checked ~ .nav-list .sub-menu li:first-child a {
+    margin-top: 1rem;
+}
+
+#check:checked ~ .nav-list .sub-menu li:last-child a {
+    margin-bottom: 1rem;
+}
+
+
+.checkbtn span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-white);
+    border-radius: 2px;
+    -webkit-transition: background-color .15s ease-in-out;
+    -o-transition: background-color .15s ease-in-out;
+    transition: background-color .15s ease-in-out;
+    transform-origin: 0px 100%;
+    transition: all 300ms;
+    z-index: 10000;
+} 
+
+.checkbtn span:nth-child(2) {
+    margin: 6px 0;
+} 
+
+
+/* ************ */
+/*     HOME     */
+/* ************ */
+
+
+/* SECTION 1 */
+
+.section__one {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    position: relative;
+}
+
+.video-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Ocupa toda la pantalla */
+    overflow: hidden;
+  }
+  
+  .background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  
+  .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Negro con 50% de opacidad */
+    z-index: 2; /* Encima del video */
+}
+
+  .overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    color: white;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+  }
+  
+  .overlay-text h1 {
+    font-size: 3.3rem;
+    line-height: 4.5rem;
+    margin: 0 0 2rem 0;
+  }
+  
+  .overlay-text p {
+    font-size: 2.5rem;
+    line-height: 3.5rem;
+    margin: 10px 0 0;
+  }
+
+
+/* SECTION 2 */
+
+.section__two .title strong {
+    font-size: 2rem;
+    font-weight: 400;
+    
+}
+
+.section__two .title span {
+    display: inline-block;
+    margin-top: 2rem;
+}
+
+.section__two .cmb {
+    margin-bottom: 2rem;
+}
+
+
+/* SECTION 3 */
+
+.section__three {
+    width: 100vw;
+    overflow: hidden;   
+    margin-top: 2rem; 
+    /* margin-bottom: 5rem; */
+}
+
+
+.section__three .sub__container {
+    margin: 3rem auto 5rem auto;
+    max-width: 90%;
+}
+
+.intro-properties-asymmetric__grid {
+    display: flex;
+    flex-wrap: wrap; /* Para que se apile en móvil */
+    gap: 2rem 4rem; /* Espacio entre filas y columnas */
+    align-items: stretch; /* Alinea los elementos al inicio */
+}
+
+/* Columna del Título */
+.intro-properties-asymmetric__title-wrapper {
+    flex: 1 1 300px; 
+    position: relative;
+    padding-right: 0rem; 
+    padding-bottom: 2rem;
+    border-right: none; /* Línea separadora dorada */
+    border-bottom: 2px solid #B99d75;
+
+   
+}
+
+.intro-properties-asymmetric__title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #003333; /* Verde oscuro del logo */
+    line-height: 1.2;
+}
+
+/* Columna del Texto */
+.intro-properties-asymmetric__text-wrapper {
+    flex: 2 1 400px; /* Le damos más espacio al texto */
+    padding-top: 0.25rem; /* Pequeño ajuste para alinear visualmente con el título */
+}
+
+.intro-properties-asymmetric__text-wrapper p {
+    font-size: 1.4rem;
+    line-height: 1.9;
+    color: #555;
+    margin: 0 0 0.5rem 0;
+}
+
+.intro-properties-asymmetric__text-wrapper .motto {
+    font-style: italic;
+    color: #003333;
+    font-weight: 500;
+}
+
+
+
+
+@media (min-width: 768px) {
+    .section__three {
+        margin-top: 0;
+    }
+}
+
+
+
+
+
+
+
+@media (min-width: 960px) {
+    .intro-properties-asymmetric__title-wrapper {
+        border-right: 2px solid #B99D75; 
+        padding-right: 2rem;
+        border-bottom: none; 
+        padding-bottom: 0rem;
+    }
+}
+
+
+
+
+@media (min-width: 1600px) {
+
+    .section__three .sub__container {        
+        max-width: 70%;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.section__three.section__bis {
+    background-image: none; 
+    width: 100vw;
+    overflow: hidden;   
+}
+
+
+.apartments-slider {
+    /* display: flex; */
+    margin-top: 5rem;
+}
+
+/* ==================================================
+   CSS DEFINITIVO PARA EL SLIDER DE PROPIEDADES
+   ================================================== */
+
+/* 1. EL SLIDE: Su ÚNICA función es crear el espacio entre tarjetas. */
+.apartment-slide {
+    padding: 0 15px; /* Crea 30px de espacio entre tarjetas */
+}
+
+/* 2. LA TARJETA VISUAL: Aquí va toda la apariencia. */
+.apartment-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Empuja el texto hacia abajo */
+    
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    width: 100%;
+    
+    /* Le damos la altura deseada */
+    height: 35rem; 
+
+    /* Estilos para la imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    transition: transform 0.4s ease;
+}
+
+.apartment-card:hover {
+    transform: scale(1.02);
+}
+
+
+/* 3. EL CONTENIDO DE TEXTO: Superpuesto y legible. */
+.apartment-card__content {
+    padding: 1.5rem;
+    color: white;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 20%, rgba(0, 0, 0, 0) 100%);
+}
+
+.apartment-card__content h3,
+.apartment-card__content p {
+    margin: 0;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.apartment-card__content h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.apartment-card__content p {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    opacity: 0.9;
+}
+
+/* 4. AJUSTES PARA PANTALLAS GRANDES */
+
+@media (min-width: 360px) {
+   .apartment-card__content h3 {        
+        font-size: 1.8rem;        
+    }
+
+    .apartment-card__content p {
+        font-size: 1.4rem;
+        line-height: 1.6;        
+    }
+}
+
+
+
+@media (min-width: 992px) {
+    .apartment-card {
+        height: 40rem; /* Más altura en escritorio */
+    }
+    .apartment-card__content {
+        padding: 2rem;
+    }
+
+    .apartment-card__content p {
+        font-size: 1.5rem;
+        line-height: 1.8;        
+    }
+}
+
+
+
+.section__three .cta__gph-ip {
+    width: 100vw; /* 100% del ancho de la ventana (viewport width) */
+    height: auto; /* 100% de la altura de la ventana (viewport height) */
+    background-image: linear-gradient(to right, var(--primary), #c4c4c4 ); /* Degradado de izquierda a derecha */
+    color: var(--color-white);
+}
+
+
+
+.section__three .sacd__cont {
+    padding: 5rem 0rem;
+}
+
+.section__three .lk__tlt {
+    font-weight: 600;
+    margin-top: 3rem;
+}
+
+.section__three .lk__btn {
+    background-color: var(--primary);
+    cursor: pointer;
+    padding: 1rem 1.5rem;
+    max-width: fit-content;
+    margin: 4rem auto 0 auto;
+    border-radius: 0.5rem;
+}
+
+
+
+
+
+/* Nuevo slider sólo de imágenes (el que aparece primero) */
+
+/* ==========================================================================
+   Slider de Imágenes Principal (Front Page)
+   ========================================================================== */
+
+.main-image-slider {
+    opacity: 0; /* Ocultar el slider inicialmente para evitar el "salto" de contenido (FOUC) */
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out;
+    margin-bottom: 60px; /* Espacio debajo del slider */
+    position: relative; /* Necesario para posicionar las flechas */
+}
+
+/* Una vez que Slick está listo, lo mostramos */
+.main-image-slider.slick-initialized {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Estilos para cada slide individual */
+.main-image-slider .slide-item {
+    position: relative; /* Para poder superponer contenido si queremos */
+    outline: none; /* Elimina el borde azul al hacer clic en un slide */
+}
+
+.main-image-slider .slide-item img {
+    width: 100%;
+    height: 65vh; /* Usa un porcentaje de la altura de la ventana. 65vh es un buen punto de partida para un slider "hero". */
+    object-fit: cover; /* Clave para que la imagen cubra todo el espacio sin deformarse. */
+    display: block; /* Elimina un pequeño espacio que a veces aparece debajo de las imágenes. */
+}
+
+/* ==========================================================================
+   Personalización de Flechas y Puntos de Slick Slider
+   ========================================================================== */
+
+/* Flechas de navegación */
+.main-image-slider .slick-prev,
+.main-image-slider .slick-next {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    border-radius: 50%; /* Círculo perfecto */
+    z-index: 10;
+    transform: translateY(-50%);
+    top: 50%;
+}
+
+.main-image-slider .slick-prev:hover,
+.main-image-slider .slick-next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.main-image-slider .slick-prev {
+    left: 25px;
+}
+
+.main-image-slider .slick-next {
+    right: 25px;
+}
+
+/* Estilo del icono de la flecha (Slick usa :before por defecto) */
+.main-image-slider .slick-prev:before,
+.main-image-slider .slick-next:before {
+    font-family: 'slick'; /* Asegúrate de que slick-theme.css se carga */
+    font-size: 24px;
+    color: white;
+    opacity: 1;
+}
+
+/* Puntos de navegación (dots) */
+.main-image-slider .slick-dots {
+    bottom: 25px; /* Posiciona los puntos dentro del slider */
+}
+
+.main-image-slider .slick-dots li button:before {
+    font-size: 12px;
+    color: white;
+    opacity: 0.75;
+}
+
+.main-image-slider .slick-dots li.slick-active button:before {
+    color: white;
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+/* SECTION 4 */
+
+/* --- Estilos Mobile-First (sin cambios de tu estructura original) --- */
+.section__four {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    overflow: hidden; /* Ayuda a contener elementos y previene colapso de márgenes */
+    background-color: var(--color-light-grey);
+}
+
+.section__four .text-content-block { /* En móvil, el texto va primero */
+    margin-bottom: 30px;
+}
+
+.section__four .text-inner-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.section__four .section-four-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 35rem;
+    object-position: center bottom;
+}
+
+
+
+
+/* Quitamos cualquier padding o margen que tuviera la sección previamente */
+.full-width-image {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+/* Hacemos que la imagen ocupe todo el ancho y su alto sea el natural */
+.full-width-image img {
+    width: 100%; /* Ocupa de extremo a extremo */
+    height: auto; /* Mantiene la proporción original de la imagen */
+    display: block; /* Elimina un pequeño margen inferior que traen las imágenes por defecto */
+    object-fit: cover; /* Opcional: asegura que se vea bien en todas las pantallas */
+}
+
+
+
+/* SECTION 5 */
+
+
+/* .section__five {
+    background-color: var(--color-white);   
+    margin: 5rem auto;
+}
+
+
+.section__five h2 {
+    font-weight: 400;
+    margin: 1rem auto 5rem auto;
+    text-align: center;
+    font-family: var(--tipo-encabezado);
+}
+
+
+.section__five .nm__container {
+   margin: 0;
+}
+
+.section__five .text__container {
+    padding: 5rem 1rem;
+}
+
+
+
+.section__five .col-w-n-px {
+    padding: 0;
+}
+
+
+.section__five .img__stn img {
+    height: 100%;
+    min-height: 40rem;
+}
+
+
+.section__five .img__stn .image-container img {
+    object-position: right bottom;
+}
+
+.bold__list li {
+    font-weight: 600;
+} */
+
+
+.section__five {
+    
+    background-color: #003333; /* O usa tu variable CSS: var(--primary) */
+    color: #FFFFFF;
+    
+    
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+
+    /* Espaciado interno para que el contenido no toque los bordes */
+    padding: 5rem 0;
+}
+
+
+/* Ajustamos el .row para un mejor alineamiento vertical */
+.section__five .row {
+    align-items: center; /* Centra verticalmente las columnas */
+}
+
+/* 2. EL CONTENIDO DE TEXTO (COLUMNA IZQUIERDA) */
+.section__five .text__container h2 {
+    font-size: 2.2rem;
+    font-weight: 600;    
+    margin-bottom: 2rem;
+}
+
+.section__five .text__container p {
+    font-size: 1.5rem;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.85); /* Blanco ligeramente transparente */
+    margin-bottom: 1.5rem;
+}
+
+/* El texto en negrita, totalmente blanco para que destaque */
+.section__five .text__container strong {
+    color: #FFFFFF; 
+}
+
+/* 
+ * 3. LA LISTA DE VALORES, AHORA CON ESTILO PREMIUM
+ * Apuntamos a tu clase ".bold__list"
+*/
+.section__five .bold__list {
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+}
+
+.section__five .bold__list li {
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Líneas separadoras sutiles */
+}
+
+/* Añadimos la línea superior al primer elemento de la lista */
+.section__five .bold__list li:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 4. LA IMAGEN (COLUMNA DERECHA) */
+.section__five .nm__full__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Esto ya lo tenías y es perfecto */
+
+    /* ¡CLAVE 2: Mismo radio de borde que el slider! */
+    border-radius: 16px;
+    
+    /* Sombra para darle profundidad */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+/* 5. AJUSTES PARA PANTALLAS GRANDES (MEDIA QUERY) */
+@media (min-width: 992px) {
+    .section__five .text__container h2 {
+        font-size: 2.2rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* SECTION 6 */
+
+.section__six picture img {
+    min-height: 40rem;
+}
+
+
+.section__six .text__section h2 {
+    font-size: 2.5rem;
+}
+
+
+.section__six .text__section h2 strong {
+    font-size: 2.8rem;
+    font-weight: 600;
+}
+
+.section__six .btn {
+    font-size: 1.4rem;
+}
+
+
+
+
+
+
+
+
+/* SECTION 7 */
+
+
+.section__seven {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+
+.section__seven .video-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Ajustá opacidad según necesidad */
+    z-index: 2; /* Entre el video (z-index: 1) y el texto (z-index: 2) */
+}
+
+
+
+.section__seven .video-section {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+
+    /* CENTRADO del texto */
+    display: flex;
+    align-items: center; /* vertical */
+    justify-content: center; /* horizontal */
+    padding: 2rem 1rem; /* espacio interno para móviles */
+    min-height: 30vh; /* evita que sea muy chico */
+}
+
+
+
+
+.section__seven .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;  
+    transform: none;  
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.section__seven .overlay-text {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    z-index: 3;
+    color: white;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+    max-width: 90%;
+}
+
+.section__seven .overlay-text h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.section__seven .overlay-text p {
+    font-size: 1.5rem;
+    margin: 10px 0 0;
+}
+
+
+
+/* SECTION 8 */
+
+/* --- ESTILOS PARA LA SECCIÓN DE CONTACTO SPLIT --- */
+
+.section__eight {
+    background-color: #ffffff;
+}
+
+/* --- Columna derecha (Panel de Información) --- */
+.info-panel {
+    /* background-color: #384d54; Color de fondo del panel */
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* min-height: 400px; */
+    height: 100%;
+    padding: 3rem 3rem 8rem 3rem;
+    text-align: center;
+
+    /* background-image: linear-gradient(to bottom, var(--primary) 50%, rgba(7,39,45, 0.3) 90%, var(--color-white) 100%); */
+}
+
+.info-panel .info-logo {
+    max-width: 120px; /* Ajusta el tamaño de tu logo */
+    margin-bottom: 2rem;
+}
+
+.info-panel .info-title,
+.info-panel .info-email {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 500;
+}
+
+.info-panel .info-title {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.info-panel .info-email {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+
+/* --- Columna izquierda (Formulario) --- */
+.form-container {
+    padding: 0.5rem 1rem; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.form-container .subtitulo-form {
+    font-weight: 600;
+    color: #555;
+    font-size: 1rem;
+}
+
+.form-container .titulo-form {
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+}
+
+/* --- ESTILOS BASE PARA EL FORMULARIO (A EDITAR) --- */
+/* Estos estilos son una base. Los adaptaremos con tus clases. */
+
+.formulario-wrapper .form-group { /* Asumiendo que cada campo está en un div */
+    margin-bottom: 2.5rem;
+}
+
+.formulario-wrapper label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.formulario-wrapper input[type="text"],
+.formulario-wrapper input[type="email"],
+.formulario-wrapper input[type="tel"],
+.formulario-wrapper textarea {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background-color: transparent;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    border-radius: 0;
+    box-shadow: none;
+    transition: border-color 0.3s ease;
+}
+
+.formulario-wrapper input:focus,
+.formulario-wrapper textarea:focus {
+    outline: none;
+    border-bottom-color: #384d54; /* Color de la línea al hacer foco */
+}
+
+.info__logo {
+    height: 15rem;
+}
+
+
+
+/* SECTION 9 */
+
+
+.section__nine {
+    background-color: #fff;
+    overflow-x: hidden; /* Previene desbordamiento horizontal */
+}
+
+/* Añadimos un margen inferior a la primera columna SOLO en móvil */
+.section__nine .col-lg-6:first-child {
+    margin-bottom: 4rem;
+}
+
+.perfil-miembro-mf {
+    position: relative;
+    /* Creamos el espacio para la foto en la parte inferior */
+    padding-bottom: 8rem; 
+}
+
+.perfil-nombre-mf {
+    font-weight: 700;
+    color: #384d54;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1.5rem;
+    text-align: left; /* En móvil, el nombre va centrado */
+}
+
+.perfil-descripcion-mf {
+    /* color: #4a4a4a; */
+    line-height: 1.7;
+    text-align: left; /* El párrafo siempre justificado */
+    margin-bottom: 2rem;
+}
+
+.perfil-contacto-mf {
+    text-align: center; /* En móvil, el contacto va centrado */
+}
+
+
+.perfil-contacto-mf a {
+    display: block;
+    color: #333;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.7rem;
+    line-height: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.perfil-foto-mf {
+    position: relative;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 250px; /* Ancho máximo de la foto en móvil */
+    height: auto;
+    margin-bottom: 5rem;
+    /* border: solid 0.5rem var(--secondary); */
+}
+
+.perfil-foto-mf img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    display: block;
+}
+
+
+
+
+
+.section__nine .cta__gph-ip .nm__textalign__center {
+    padding: 3rem;
+    background-image: linear-gradient(to right, var(--secondary), #c4c4c4 ); /* Degradado de izquierda a derecha */
+    margin-bottom: 5rem;
+    border: solid 0.5rem var(--primary);
+    border-radius: 1rem;
+}
+
+
+
+
+
+
+
+
+
+@media (min-width: 992px) {
+    /* Eliminamos el margen inferior que pusimos para móvil */
+    .section__nine .col-lg-6:first-child {
+        margin-bottom: 0;
+    }
+
+    .perfil-miembro-mf {
+        height: 100%; /* Hacemos que ambas columnas tengan la misma altura */
+        display: flex;
+        flex-direction: column;
+    }
+
+    .perfil-contenido-mf {
+        flex-grow: 1; /* Empuja el contacto hacia abajo */
+    }
+
+    .m__team__1 .perfil-nombre-mf {
+        text-align: right; /* En escritorio, el nombre va a la izquierda */
+    }
+
+    .m__team__2 .perfil-nombre-mf {
+        text-align: left; /* En escritorio, el nombre va a la izquierda */
+    }
+
+    .m__team__1 .perfil-descripcion-mf {
+     text-align: right;
+    }
+
+
+     .m__team__2 .perfil-descripcion-mf {
+        text-align: left;
+    }
+
+
+
+
+    .m__team__1 .perfil-contacto-mf {
+        text-align: right; /* En escritorio, el contacto va a la izquierda */
+    }
+
+
+    .m__team__2 .perfil-contacto-mf {
+        text-align: left; /* En escritorio, el contacto va a la izquierda */
+    }
+    
+    .perfil-foto-mf {
+        max-width: 300px; /* Permitimos que la foto sea un poco más grande en escritorio */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* BEGIN HIDDEN SECTIONS */
+
+/* SECTION SERVICES-HOME */
+
+
+.section__services__home {
+    background-color: #f1f1f1;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.section__services__home h2 {
+    font-weight: 600;
+    margin: 5rem auto;
+    text-align: center;
+}
+
+.card-container {
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.card-front {
+    position: relative;
+    width: 100%;
+    height: 200px; /* Puedes ajustar la altura según lo que necesites */
+    overflow: hidden;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    height: 25rem;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease-in-out;
+    border-radius: 20px;
+}
+.card-container:hover .card {
+    transform: rotateY(180deg);
+}
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    /* padding: 20px; */
+    overflow: hidden;
+}
+.card-front {
+    background: var(--color-white);
+    color: var(--color-black);
+}
+.card-back {
+    background: #f8f9fa;
+    color: black;
+    transform: rotateY(180deg);
+}
+
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cambia a contain si prefieres que la imagen se ajuste sin recortarse */
+}
+
+
+/* SECTION PROFESSIONAL MAINTENANCE HOME */
+
+.professional__maintenance__team {
+    background-color: var(--color-white);
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.professional__maintenance__team h2 {
+    font-weight: 600;
+    margin: 5rem auto;
+    text-align: center;
+}
+
+.maintenance-check svg {
+    width: 10%;
+}
+
+.maintenance-check ul li {
+    
+   display: flex;
+    align-items: center;
+}
+
+
+.custom-list li {
+    display: flex;
+    align-items: flex-start; 
+}
+
+.custom-list svg {
+    flex-shrink: 0; /* Evita que el icono se comprima */
+    margin-right: 8px; /* Ajusta el margen según sea necesario */
+}
+
+/* END HIDDEN SECTIONS */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* PAGES */
+
+.pg__title {
+    text-align: center;;
+}
+
+
+
+
+/* ZONA INVERSOR */
+
+
+/* =================================================================
+   CSS FINAL PARA LA GALERÍA - SIN FLASH Y CON TUS CLASES
+   ================================================================= */
+
+/* El contenedor principal de cada imagen */
+.image-hover-wrapper {
+    position: relative; /* Es el lienzo para las capas */
+    overflow: hidden;
+    height: 100%;
+}
+
+/* La imagen base */
+.image-hover-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 1.2s ease-in-out;
+}
+
+/* 
+ * Usamos pseudo-elementos para crear las dos capas de color.
+ * Esto es 100% CSS y no requiere cambiar tu HTML.
+*/
+.image-hover-wrapper::before,
+.image-hover-wrapper::after {
+    content: ''; /* Obligatorio para que los pseudo-elementos se muestren */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Se sitúan entre la imagen y el texto */
+
+    /* LA TRANSICIÓN SUAVE DEFINITIVA: Animamos la opacidad */
+    transition: opacity 1.2s ease-in-out;
+}
+
+/* 
+ * CAPA INFERIOR (::before): El estado al hacer hover (degradado ligero).
+ * Por defecto está oculta.
+*/
+.image-hover-wrapper::before {
+    background: linear-gradient(to bottom, rgba(0, 51, 51, 0.6) 0%, rgba(0, 51, 51, 0) 40%);
+    opacity: 0; 
+}
+
+/* 
+ * CAPA SUPERIOR (::after): El estado por defecto (velo oscuro).
+ * Por defecto es visible.
+*/
+.image-hover-wrapper::after {
+    background: rgba(0, 51, 51, 0.7);
+    opacity: 1;
+}
+
+/* 
+ * EL HOVER: Invertimos la opacidad de las dos capas
+*/
+.image-hover-wrapper:hover::after {
+    opacity: 0; /* La capa oscura superior se desvanece... */
+}
+
+.image-hover-wrapper:hover::before {
+    opacity: 1; /* ...revelando la capa clara de abajo. */
+}
+
+/* El zoom de la imagen se mantiene */
+.image-hover-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+/* 
+ * Tu DIV ".overlay" y el TÍTULO ".overlay-title"
+ * Los ponemos por encima de todo.
+*/
+.image-hover-wrapper .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* Se asegura de estar encima de los pseudo-elementos */
+
+    /* Lo usamos para posicionar el título arriba */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem;
+}
+
+.overlay-title {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-align: center;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+/* AJAX DINÁMICO PARA LA ZONA INVERSOR */
+
+
+
+/* 1. Contenedor principal del área dinámica */
+#dynamic-content-area {
+    position: relative;
+    min-height: 200px; /* Evita que la sección colapse durante la carga */
+    transition: min-height 0.3s ease-in-out;
+}
+
+/* 2. Estilos compartidos para el contenido y el loader */
+#dynamic-content-area .dynamic-content__container,
+#dynamic-content-area .dynamic-content__loader {
+    transition: opacity 0.25s ease-in-out;
+    width: 100%;
+}
+
+/* 3. Estilo del loader. Se posiciona en el centro del contenedor. */
+#dynamic-content-area .dynamic-content__loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+
+/* 4. ESTADO POR DEFECTO (Página cargada) */
+/* El contenido es visible, el loader es invisible. */
+#dynamic-content-area .dynamic-content__container {
+    opacity: 1;
+}
+
+#dynamic-content-area .dynamic-content__loader {
+    opacity: 0;
+    pointer-events: none; /* No interfiere con el ratón cuando está oculto */
+}
+
+
+/* 5. ESTADO DE CARGA (Cuando el contenedor tiene la clase .is-loading) */
+/* Se invierte la visibilidad: el contenido se oculta, el loader se muestra. */
+#dynamic-content-area.is-loading .dynamic-content__container {
+    opacity: 0;
+}
+
+#dynamic-content-area.is-loading .dynamic-content__loader {
+    opacity: 1;
+}
+
+
+.dynamic-content__container .row__wrapper{
+    margin: 5rem auto;
+}
+
+
+.dynamic-content__container img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+
+
+
+
+.dynamic-content__container li {
+    list-style: disc;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    margin-bottom: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estilo para el contenedor del contenido, para que el fadeOut/In funcione bien */
+/* #dynamic-content-area .dynamic-content__container {
+    min-height: 150px; 
+    transition: opacity 0.3s ease-in-out;
+} */
+
+/* Estilo para el loader de Bootstrap */
+/* #dynamic-content-area .dynamic-content__loader {
+    padding: 50px 0;
+} */
+
+/* Estilo para el trigger activo (opcional) */
+/* .section_two .image-hover-wrapper {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+} */
+
+/* .section_two .image-hover-wrapper.active {
+    box-shadow: 0 0 0 4px var(--primary-color); 
+    transform: scale(1.03);
+} */
+
+
+
+
+
+
+
+
+
+
+
+#dynamic-content-area {
+    margin-top: 5rem;
+}
+
+
+
+.dynamic-content__container {
+    padding: 2rem 1rem;
+}
+
+
+
+.dynamic-content__container .wp-block-columns {
+    align-items: center;
+}
+
+
+
+#dynamic-content-area h2 {
+    margin-bottom: 3rem;
+    color: var(--primary);
+}
+
+
+#dynamic-content-area h3 {
+    margin-bottom: 3rem;
+}
+
+
+
+#dynamic-content-area p {
+    margin-bottom: 5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+    /* PROPERTIES */
+
+    .heading {
+        margin-top: 15rem;
+    }
+
+    .main-properties-section {
+        background-color: var(--color-white);
+        padding: 2rem;
+    }
+
+
+
+/* -- Contenedor de la cuadrícula -- */
+.grid-format {
+    display: grid;
+    gap: 2rem;
+    padding-left: 0rem;
+}
+
+/* -- Estilos generales de la tarjeta (propertie-card) -- */
+.propertie-card {
+    position: relative; /* ¡CRÍTICO! Establece el contexto de posicionamiento para los elementos absolutos hijos */
+    height: 40rem; /* Mantiene la altura fija de la tarjeta */
+    /* background: white; */ /* Ya no es necesario un fondo blanco principal */
+    border-radius: 1rem;
+    overflow: hidden; /* Asegura que la imagen y el contenido se recorten con los bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* No es necesario display: flex aquí, ya que la imagen y el contenido serán absolutos */
+}
+
+.propertie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* -- Estilos de la imagen dentro de la tarjeta -- */
+.propertie-card img {
+    position: absolute; /* La imagen debe ser absoluta para que ocupe todo el espacio */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* ¡CRÍTICO! La imagen ocupa todo el alto de la tarjeta */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse, recortando si es necesario */
+    border-radius: 1rem; /* Aplica el mismo radio de borde que la tarjeta */
+    z-index: 1; /* Asegura que la imagen esté debajo del contenido si el contenido también es absoluto */
+}
+
+/* -- Estilos del contenido de la propiedad (propertie_content) -- */
+.propertie_content {
+    position: absolute; /* ¡CRÍTICO! Superpone este div sobre la imagen */
+    bottom: 0;          /* Alinea el contenido a la parte inferior de la tarjeta */
+    left: 0;            /* Lo alinea a la izquierda */
+    width: 100%;        /* Ocupa todo el ancho de la tarjeta */
+    height: auto;       /* ¡CRÍTICO! La altura se ajustará al contenido, no ocupará el 100% */
+    background-color: #1c313ae5; 
+    padding: 1rem;      /* Mantiene el padding existente */
+    box-sizing: border-box; /* Incluye el padding en el cálculo del ancho/alto */
+    z-index: 2;         /* Asegura que el contenido esté *encima* de la imagen */
+    color: white;       /* Color del texto por defecto para que sea legible sobre el fondo oscuro */
+
+    /* Ya no necesitamos display: flex con flex-end aquí,
+       porque el propio div propertie_content es el que está en la parte inferior,
+       y su contenido fluirá normalmente dentro de él. */
+}
+
+/* -- Ajustes de colores y disposición para el texto dentro de propertie_content -- */
+.propertie_content h3 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: white; /* ¡CAMBIADO! Asegura que el título sea blanco */
+    margin-top: 0; /* Elimina cualquier margen superior por defecto */
+    margin-bottom: 0.5rem; /* Un poco de margen inferior para separar del resto */
+    text-align: left;
+}
+
+.propertie_content .price-tag-format {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: white; /* ¡CAMBIADO! Color del precio */
+    /* Puedes usar un color que destaque si prefieres, ej: #FFD700 (dorado) */
+}
+
+.propertie_content .details {
+    margin-top: 1rem;
+    display: flex; /* Para las columnas */
+    flex-direction: row; /* Asegura que los detalles estén en fila */
+    flex-wrap: wrap; /* Permite que las columnas se envuelvan en pantallas pequeñas */
+    justify-content: space-between; /* Distribuye el espacio entre los detalles */
+    margin-left: -0.5rem; /* Compensa el padding de las columnas */
+    margin-right: -0.5rem;   
+}
+
+.propertie_content .content-detail {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 0.875rem;
+    color: white; /* ¡CAMBIADO! Color del texto de detalles */
+    padding-left: 0.5rem; /* Añade un pequeño espaciado entre columnas */
+    padding-right: 0.5rem;
+    text-align: left; /* Centra el texto dentro de cada detalle */
+
+    /* Estas reglas son para que tus clases col-3, col-6, col-12 funcionen dentro del overlay.
+       Si ya tienes un sistema de grid que las define globalmente y funciona, puedes ignorarlas. */
+    /* flex: 0 0 calc(25% - 1rem); Para .col-3: 25% de ancho menos el padding */
+    /* max-width: calc(25% - 1rem); Para .col-3 */
+}
+
+/* Asegurando que tus clases col-X funcionen dentro del overlay */
+.propertie_content .col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.propertie_content .col-8 {
+    padding: 0;
+}
+
+
+
+
+.propertie_content .col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0;
+}
+.propertie_content .col-3 {
+    flex: 0 0 25%;
+    max-width: 30%;  
+    padding: 0;  
+    justify-content: center;
+}
+
+.propertie_content .col-3.first__column {
+    flex: 0 0 20%;
+    justify-content: flex-start;
+}
+
+.propertie_content .col-3.second__column {
+    flex: 0 0 30%;
+}
+
+.propertie_content .col-3.fourth__column {
+    justify-content: flex-end;
+}
+
+.propertie_content .content-detail span {
+    font-weight: 400;
+    color: white; /* ¡CAMBIADO! Color del texto de las etiquetas */
+    padding-right: 0.2rem; /* Ajustado para mejor alineación */
+    font-style: italic;
+}
+
+.propertie_content .content-detail p {
+    color: white; /* Asegura que los valores numéricos también sean blancos */
+}
+
+.propertie_content .content-detail span.normal__weight {
+    font-weight: normal;
+}
+
+.propertie_content .details.price .content-detail {
+    justify-content: flex-start; /* Alinea el precio a la izquierda */
+    color: white;
+    width: 100%; /* Asegura que ocupe todo el ancho para la alineación */
+    font-size: 1.2em; /* Haz el precio un poco más grande */
+    font-weight: bold; /* Y en negrita */
+}
+.propertie_content .details.price p {
+    color: white; /* Asegura que el número y el símbolo € también sean blancos */
+    display: inline-block; /* Para que "€" aparezca al lado del número */
+    margin-left: 5px; /* Espacio entre el número y el euro */
+}
+.propertie_content .details.price span {
+    font-weight: normal; /* "Desde" puede ser normal */
+    font-size: 0.8em; /* "Desde" un poco más pequeño */
+    color: white;
+    margin-right: 5px;
+}
+
+
+/* -- Otros estilos existentes (sin cambios) -- */
+.featured-properties-item {
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.featured-properties-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-wrapper {
+    display: flex;
+    transition-timing-function: linear;
+}
+
+.swiper-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.featured-properties-navigation {
+    pointer-events: none;
+}
+
+.featured-properties-navigation button {
+    pointer-events: all;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.featured-properties-navigation button:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+.mva-amenities {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.mva-amenities div {
+    display: flex;
+    align-items: center;
+}
+
+.pagination-top, .pagination-bottom {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.pagination-top a, .pagination-bottom a {
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #f3f4f6;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: #374151;
+    transition: background 0.3s ease;
+}
+
+.pagination-top a:hover, .pagination-bottom a:hover {
+    background: #e5e7eb;
+}
+
+
+
+    /* Estilos generales */
+
+
+/* .grid-format {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.grid-format {
+    padding-left: 0rem;
+}
+
+
+.featured-properties-item {
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.featured-properties-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-wrapper {
+    display: flex;
+    transition-timing-function: linear;
+}
+
+.swiper-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.featured-properties-navigation {
+    pointer-events: none;
+}
+
+.featured-properties-navigation button {
+    pointer-events: all;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.featured-properties-navigation button:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+.mva-amenities {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.mva-amenities div {
+    display: flex;
+    align-items: center;
+}
+
+.pagination-top, .pagination-bottom {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.pagination-top a, .pagination-bottom a {
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #f3f4f6;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: #374151;
+    transition: background 0.3s ease;
+}
+
+.pagination-top a:hover, .pagination-bottom a:hover {
+    background: #e5e7eb;
+}
+
+
+.propertie-card {
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 32rem;
+}
+
+.propertie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.propertie-card img {
+    height: 15rem;
+    width: 100%;
+}
+
+.propertie_content {
+    padding: 1rem;
+}
+
+.propertie_content h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.price-tag-format {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: #1e40af; 
+}
+
+.details {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-detail {
+    font-size: 0.875rem;
+    color: var(--color-black-soft);
+    display: flex;
+    justify-content: center;
+    
+}
+
+.content-detail span {
+    font-weight: bold;
+    color: #333;
+    padding-right: 0.7rem;
+}
+
+.content-detail span.normal__weight {
+    font-weight: normal;
+}
+
+
+.details.price .content-detail {
+    justify-content: flex-start;
+    
+}
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*    SINGLE PROPERTY - APPARTMENT   */
+    /*************************************/
+
+
+    .single-properties,
+    .single-properties_long_term {
+        background-color: var(--color-white);
+    }
+
+    #property__gallery .thumbnail-post {
+        width: 100%;
+        height: 75vh;
+    }
+
+    .row-img-gallery,
+    .nmh-slider {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+           
+    }
+
+    .row-img-gallery {
+        background-color: grey;
+    }
+
+    .nmh-slider {
+        margin: 0 auto;       
+    }
+
+    .row-img-gallery{
+        position: relative;
+    }
+
+
+    .row-img-gallery .nmh-slider {
+        padding: 2px;
+        width: 30rem;
+        height: 9rem;
+        overflow: hidden;
+        scroll-behavior: smooth;
+    }
+
+
+    .row-img-gallery .nmh-slider a {
+        width: 10rem;
+        height: 7rem;
+    }
+
+
+
+    .row-img-gallery .nmh-slider img {        
+        width: 30rem;
+        height: 100%;
+        position: relative;
+        z-index: 1;
+    }
+
+    
+    .row-img-gallery .nmh-slider div {
+        margin: 0.3rem;       
+    }
+
+
+    .row-img-gallery .control {
+        position: absolute;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        background: var(--primary);
+        cursor: pointer;
+        object-fit: cover;
+        padding: 1rem;
+        z-index: 2;
+    }
+
+    .row-img-gallery .prev {
+        left: 0;
+        top: 50%;
+        transform: translate(-10%, -50%);
+    }
+
+    
+    .row-img-gallery .next {
+        right: 0;
+        top: 50%;
+        transform: translate(10%, -50%);
+    }
+
+
+
+    .single-container {
+        margin: 1.5rem 1rem;
+    }
+
+    .single-container .property-header-container {
+        padding: 5rem 1rem 6rem 1rem;
+        background-color: #0c2529;
+        color: var(--color-white);
+    }
+
+    .single-container .property-price {
+        font-size: 2rem;
+    }
+
+    .single-container .property-header {
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        width: 100vw;
+    }
+
+    .property-header-container .property-features {
+        align-items: center;
+    }
+
+
+    .single-container h1,    
+    .single-container p {
+        font-size: 1.4rem;
+        line-height: 2rem;
+        font-weight: 300;
+    }
+
+
+    .single-container h1 {
+        font-size: 3rem;
+        line-height: 4.5rem;
+        font-weight: 500;
+        text-align: center;
+        text-align: left;
+    }
+
+
+    .single-container .price-tag-format_sp {
+        font-size: 1.5rem;
+        font-weight: 500;
+        text-align: center;
+        margin: 2rem auto;
+        
+    }
+
+    .single-container .col-12.content-detail {
+        margin: 0 auto;
+        text-align: center;
+        align-items: center;
+        margin: 0rem auto 5rem auto;
+    }
+
+    .single-container .col-12.content-detail span {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    .single-container .col-12.content-detail p {
+        font-size: 1.8rem;
+        margin-bottom: 0;
+    }
+
+    .referencies {
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        margin: 2rem auto 0 auto !important;
+    }
+
+    .referencies .ref-col {
+        text-align: center;
+    }
+
+
+    .referencies .ref-col p {
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       font-size: 1.2rem;
+       font-weight: 400;
+    }
+
+
+    .referencies .ref-col .material-symbols-outlined {
+        margin-right: 0.2rem;
+    }
+
+    .referencies .ref-col .mq,
+    .referencies .ref-col sup {
+        font-weight: 500;
+    }
+
+    
+    .form-container {
+        margin: 5rem 2rem;
+    }
+
+    h3 {
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
+    .form-container h3 {
+        text-align: center;
+    }
+    
+    .single-properties .link,
+    .single-properties_long_term .link {       
+        margin: 0 auto;
+    }
+
+    .single-properties .link button,
+    .single-properties_long_term .link button {
+        font-size: 1.4rem;
+        line-height: 2rem;
+        color: var(--color-white);
+        background-color: var(--primary-color);
+        border: solid 0.1rem var(--secondary);
+        height: 3.5rem;
+        width: 25rem;
+        padding: 0.1rem 1rem;
+        cursor: pointer;
+        margin: 3.5rem auto;
+    }
+
+
+    .single-properties .link button:hover,
+    .single-properties_long_term .link button:hover {
+        color: var(--primary-black);
+        background-color: var(--secondary);
+    }
+
+
+
+    .map__container {
+        margin: 5rem auto;
+        padding: 0 0rem;
+    }
+
+
+
+
+    .map__container iframe {
+        width: 100%;
+    }
+
+
+
+
+
+    .nm__button {
+        position: relative;
+        background: var(--color-soft-black);
+        color: var(--color-white);
+        padding: 15px 25px;
+        border: solid 0.1rem var(--color-black);
+        border-radius: 30px;
+        font-family: var(--tipo-parrafo);
+        font-size: 1.6rem;
+        line-height: 2rem;
+        font-weight: 400;
+        margin: 0 auto;
+        text-decoration: none;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+        transition: all 0.3s ease;
+    }
+
+    .nm__button.fixed {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+    }
+
+
+
+
+
+    
+#responsive-form label {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-family: var(--tipo-encabezado);
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-style: italic;
+    color: var(--quaternary-color);
+    text-align: left;
+
+}
+
+
+#responsive-form input,
+#responsive-form select,
+#responsive-form textarea {
+    font-family: var(--tipo-parrafo);
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 2rem;
+    color: var(--color-black);
+    text-align: left;
+    background-color: transparent;
+    border: none; /* borro estilos heredados de bootstrap */
+    border-bottom: solid 1px var(--color-black);
+    border-radius: 0;
+    height: 2.2rem;
+}
+
+#responsive-form textarea,
+#responsive-form .btn {
+    height: 100%;
+}
+
+
+#responsive-form select:active, 
+#responsive-form select:hover {
+    outline: none;
+  }
+
+
+  
+#responsive-form select:active, 
+#responsive-form select:hover {
+    outline-color: red;
+}
+
+
+#responsive-form textarea {
+    border: solid 1px var(--color-black);
+}
+
+#responsive-form select option {
+   font-weight: 600;
+}
+
+
+#responsive-form .fe-acceptance-rgpd.fe-subscribe {
+    display: inline-flex;
+    margin-top: 2.5rem;
+}
+
+
+#responsive-form .fe-acceptance-rgpd.fe-subscribe p {
+    text-align: left;
+    margin-left: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+
+
+#responsive-form .fe-acceptance-rgpd.fe-subscribe a {
+    font-weight: 600;
+}
+
+
+#responsive-form .fe-acceptance-rgpd.fe-subscribe input {
+    height: 1rem;
+    margin-top: 0.2rem;
+}
+
+
+
+#responsive-form .fe-first-layer {
+    padding: 0.7rem;
+    border: 1px solid var(--quaternary-color);
+}
+
+
+
+#responsive-form .fe-first-layer p,
+#responsive-form .fe-first-layer strong {
+    font-size: 0.7rem;
+    line-height: 1rem;
+    text-align: left;    
+    font-weight: 600; 
+    margin-bottom: 0;   
+}
+
+
+
+#responsive-form .btn-enviar-datos {
+    margin: 3rem auto 2rem auto;
+    width: 10rem;
+    text-align: center;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    border-bottom: none;
+    -webkit-box-shadow: 0.4rem 0.4rem 1rem 0rem rgba(0,0,0,0.75);
+    -moz-box-shadow: 0.4rem 0.4rem 1rem 0rem rgba(0,0,0,0.75);
+    box-shadow: 0.4rem 0.4rem 1rem 0rem rgba(0,0,0,0.75);
+}
+
+
+   .form-control {
+    -webkit-box-shadow: none!important;
+    -moz-box-shadow: none!important;
+    box-shadow: none!important;
+   }
+
+
+
+
+
+
+
+   
+/* **************************************** */
+/*                   BLOG                   */
+/* **************************************** */
+
+
+.blog__content {
+    padding-top: 6rem;
+    margin-bottom: 2rem;
+}
+
+
+
+.blog__content .container {
+    width: 100% !important;    
+}
+
+
+
+
+.blog__content .page-title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--color-black-soft);
+    text-align: left;
+}
+
+
+.blog__content .list__posts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espaciado entre posts */
+}
+
+
+
+
+
+
+.blog__content .archive-item {
+    flex: 0 0 100%; /* Una columna en pantallas pequeñas */
+}
+
+
+
+
+
+
+
+.blog__content .side-bar__column h2,
+.blog__content .side-bar__column h2 strong {
+    font-family: var(--tipo-encabezado);
+    font-size: 1.5rem;
+}
+
+
+
+.blog__content .post-thumbnail img {
+    width: 100%;
+    height: 15rem;
+}
+
+
+.blog__content .post-title a {
+    font-family: var(--tipo-encabezado);
+    font-size: 2.2rem;
+    line-height: 2.8rem;
+    margin: 2rem auto;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+
+.blog__content .blog-post {
+    margin-top: 6rem;
+    width: 25%;
+}
+
+.blog__content .post-content p,
+.blog__content .post-content p strong {
+    font-size: 1.7rem;
+    line-height: 2.4rem;
+}
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.pagination a, .pagination span {
+    display: inline-block;
+    padding: 8px 12px;
+    color: #333;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.pagination a:hover, .pagination .current {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+
+
+
+
+
+/*             BLOG - SIDEBAR              */
+/* *************************************** */
+
+.cmr__sidebar ul li a {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+}
+
+
+.cmr__sidebar ul li a:hover {
+    color: var(--primary-color);
+}
+
+
+
+.cmr__sidebar ul li a:active {
+    color: var(--primary-color);
+}
+
+
+
+
+/*             BLOG - ARCHIVO              */
+/* *************************************** */
+
+
+.archive .content {
+    padding-top: 12.5rem;
+    padding-bottom: 2rem;
+}
+
+
+
+.archive .content .main__img{
+    width: 100% !important;
+    max-height: 50rem;
+}
+
+
+
+
+
+
+
+.archive .page-title {
+    text-align: center;
+}
+
+
+.archive .side-bar__column h2 {
+    font-family: var(--tipo-encabezado);
+    font-size: 1.5rem;
+}
+
+
+.archive .post__main__image {
+    width: 100%;
+    height: 15rem;
+    margin: 0 auto;
+}
+
+
+.archive .blog-post a h1 {
+    font-family: var(--tipo-encabezado);
+    font-size: 2.2rem;
+    line-height: 2.8rem;
+    margin: 2rem auto;
+}
+
+
+.archive .blog-post {
+    margin-top: 6rem;
+}
+
+.archive .blog-post p,
+.archive .blog-post p strong {
+    font-size: 1.7rem;
+    line-height: 2.2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*         ENTRADA INDIVIDUAL BLOG         */
+/* *************************************** */
+
+.single-post .content {
+    padding-top: 12.5rem;
+    padding-bottom: 2.5rem;
+}
+
+
+
+
+.single-post .content .main__img{
+    width: 100% !important;
+    max-height: 50rem;
+}
+
+
+
+.single-post h1 {
+    font-family: var(--tipo-encabezado);
+    font-size: 2.2rem;
+    line-height: 2.8rem;
+    margin: 2rem auto;
+}
+
+.blog-sidebar-col button {
+    background-color: var(--primary);
+    color: var(--color-white);
+    padding: 0 1.5rem;
+}
+
+
+.single-post .blog-content-col img {
+    margin: 1.5rem auto;
+}
+
+
+.blog-sidebar-col .cat-item a {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+
+
+.single-post .single__post__content {
+    margin-top: 2rem;
+}
+
+
+.single-post .single__post__content .post__main__image {
+    margin: 0 auto;
+}
+
+
+.single-post .single__post__content h2,
+.single-post .single__post__content h2 strong {
+    margin: 1.2rem auto 2rem auto;
+    font-family: var(--tipo-encabezado);
+    font-size: 2.2rem;
+    line-height: 2.5rem;
+    font-weight: 400;
+}
+
+.single-post h3,
+.single-post h3 strong{
+    font-family: var(--tipo-subencabezado);
+    font-size: 2.2rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.8rem;
+    font-weight: 600;
+}
+
+.single-post p,
+.single-post p a,
+.single-post p strong,
+.single-post p strong a {
+    font-size: 1.7rem;
+    line-height: 2.4rem;
+}
+
+
+.single-post p a,
+.single-post p strong a {
+    color: var(--primary-color);
+}
+
+.single-post p em {
+    font-size: 1.7rem;
+    line-height: 2.2rem;
+    font-style: italic;
+}
+
+.single-post .single__post__content p a {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--quaternary-color);
+}
+
+
+
+
+
+
+.single-post .single__post__content ul li,
+.single-post .single__post__content ul li strong,
+.single-post .single__post__content ul li strong a,
+.single-post .single__post__content ol li,
+.single-post .single__post__content ol li strong,
+.single-post .single__post__content ol li strong a {
+    font-size: 1.7rem;
+    line-height: 2.2rem;
+    margin-bottom: 1.8rem;
+}
+
+.single-post ul li,
+.single-post ul li strong,
+.single-post ul li strong a,
+.single-post ol li,
+.single-post ol li strong,
+.single-post ol li strong a {
+    font-size: 1.7rem;
+    line-height: 2.2rem;
+    
+}
+
+
+.single-post ul li,
+.single-post ul li strong,
+.single-post ol li,
+.single-post ol li strong {
+    font-size: 1.7rem;
+    line-height: 2.2rem;
+    margin-bottom: 1.8rem;    
+}
+
+
+
+
+.single-post ul li strong a,
+.single-post ol li strong a {
+    display: contents;
+}
+
+
+.single-post ul li strong a:hover,
+.single-post ol li strong a:hover {
+    color: var(--primary-color);
+}
+
+
+
+
+
+
+.nmh__menu__footer__sticky ul li {
+    margin-bottom: 0 !important;
+}
+
+.single-post .single__post__content ul li a {
+    font-size: 1.7rem;
+    line-height: 2.2rem;
+    font-weight: 500;
+    color: var(--quaternary-color);
+}
+
+
+
+/* BUSCADOR ENTRADAS BLOG */
+
+.wp-block-search__label {
+    font-family: var(--tipo-encabezado);
+    padding: 2rem 0;
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: var(--primary-color-hamburguer);
+    text-align: left;
+}
+
+.cmr__sidebar .wp-block-heading {
+    text-align: left;
+}
+
+
+.cmr__sidebar .wp-block-search__button {
+    background-color: var(--primary-color);
+    padding: 1rem;
+    color: white;
+    font-size: 1.4rem;
+}
+
+
+/* Estilos generales */
+.search-results-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.search-results-content {
+    padding: 20px;
+    margin-top: 8rem;
+}
+
+.search-results-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.search-results-title span {
+    color: var(--primary-color-hamburguer);
+    font-size: 2.5rem;
+}
+
+.search-results-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.search-result-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    transition: box-shadow 0.3s;
+}
+
+.search-result-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.search-result-link {
+    text-decoration: none;
+    color: #0073aa;
+}
+
+.search-result-link h2 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.search-result-link:hover h2 {
+    text-decoration: underline;
+}
+
+.no-results {
+    font-size: 18px;
+    color: #555;
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .search-results-container {
+        padding: 10px;
+    }
+
+    .search-results-title {
+        font-size: 20px;
+    }
+
+    .search-result-link h2 {
+        font-size: 18px;
+    }
+}
+
+
+
+/* END - BUSCADOR ENTRADAS BLOG */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+/* **************************************** */
+/*                 OWNERS                   */
+/* **************************************** */
+
+
+
+
+
+    /* Contenedor principal */
+    .hero {
+        background-image: url('./assets/images/owner02.jpg'); /* Imagen de fondo */
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+    }
+
+    /* Contenido del héroe */
+    .hero-content {
+        background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+        padding: 40px;
+        border-radius: 10px;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+    }
+
+    /* Botón de llamado a la acción */
+    .cta-button {
+        background-color: var(--color-soft-black);
+        color: white;
+        padding: 15px 30px;
+        font-size: 1.8rem;
+        font-weight: 500;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+        background-color: #fff;
+        color: var(--color-soft-black)
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+/* **************************************** */
+/*                CONTACT                  */
+/* **************************************** */
+
+
+.contact__page {
+    padding-top: 7rem;
+}
+
+
+
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.form-control {
+    border: none;
+    border: 0.15rem solid var(--color-grey);
+    background-color: transparent;
+    margin-bottom: 3rem;
+    border-radius: 0px;
+}
+
+.form-control::placeholder {
+    color: grey;
+    font-size: 1.2rem;
+    padding: 1rem;
+}
+
+.contact__hebe__body .content-contact #responsive-form label {
+    margin-top: 2.5rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-family: var(--tipo-parrafo);
+    line-height: 2.5rem;
+    font-style: italic;
+    color: var(--color-black-soft);
+    text-align: left;    
+}
+
+
+
+.contact__hebe__body .content-contact #responsive-form input {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    padding: 1rem;
+    
+} 
+
+
+.contact__hebe__body .content-contact #responsive-form input.btn {
+    margin-top: 2rem;
+    background-color: var(--primary-color);
+    color: var(--color-black);
+}
+
+
+.contact__hebe__body .content-contact #responsive-form input.btn:hover {
+    background-color: var(--quaternary-color);
+    color: var(--color-white);
+} 
+
+
+.contact__hebe__body .content-contact #responsive-form .fe-acceptance-rgpd {
+    display: flex;
+    margin: 0.8rem 0 0.1rem 0;
+}
+
+
+
+
+.contact__hebe__body .content-contact #responsive-form .fe-acceptance-rgpd input {
+    height: 1.1rem;
+}
+
+
+
+
+.contact__hebe__body .content-contact #responsive-form .fe-acceptance-rgpd p,
+.contact__hebe__body .content-contact #responsive-form .fe-acceptance-rgpd a {
+    font-size: 1rem;
+    line-height: 1.2rem;
+}
+
+.contact__hebe__body .content-contact #responsive-form .fe-acceptance-rgpd a {
+    font-weight: 600;
+}
+
+.contact__hebe__body .content-contact #responsive-form .fe-acceptance-rgpd p {
+    margin-left: 0.8rem;
+}
+
+
+
+
+.contact__hebe__body .content-contact #responsive-form .fe-first-layer {
+    border: solid 0.1rem var(--color-black);
+    padding: 1rem;
+}
+
+.contact__hebe__body .content-contact #responsive-form .fe-first-layer p,
+.contact__hebe__body .content-contact #responsive-form .fe-first-layer strong,
+.contact__hebe__body .content-contact #responsive-form .fe-first-layer a {
+    font-size: 1rem;
+    line-height: 1.4rem;
+}
+
+
+
+.contact__hebe__body .content-contact #responsive-form .fe-first-layer p {
+    margin-bottom: 0;
+}
+
+
+
+
+  
+/* **************************************** */
+/*          GRACIAS POR CONTACTAR           */
+/* **************************************** */
+
+
+
+.thank-text {
+    margin-top: 15rem;
+    
+}
+
+
+.thank-text h3 {
+    margin: 0 auto;
+    text-align: center;
+    color: var(--color-white);
+    font-size: 2rem;
+}
+
+
+.thank-text-2 {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+.thank-text-2 h4 {    
+    margin: 0 auto;
+    text-align: center;
+    color: var(--color-white);
+    font-size: 1.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FOOTER */
+
+
+
+.container-chat {    
+    position: fixed;
+    bottom:8rem;
+    right: 2rem;
+    z-index: 1000020;    
+}
+
+/* .book-link {
+    position: fixed;
+    margin: 0 auto;
+    z-index: 1000020;  
+} */
+
+.container-chat a {
+    display: flex;
+    justify-content: end;
+}
+
+
+footer {
+    background:var(--color-black);
+    padding: 2rem 0.5rem;
+}
+
+
+footer {
+    /* background-image: linear-gradient(to top, var(--primary) 3%, var(--color-white)); */
+
+     background: linear-gradient(#fff 0%, #07272dad 100%);
+}
+/* 
+footer.ch__color {
+    background-image: linear-gradient(to top, rgba(141, 118, 94, 0.274),rgb(255, 255, 255));
+} */
+
+
+footer .row {
+    width: auto!important; /* No quitar. Debo forzar el width auto debido a que en el RESET he indicado el ancho como ancho de pantalla para evitar desbordamiento */
+}
+
+footer .nm-container {
+    margin: 0 3rem;
+    text-align: center;
+}
+
+footer .logo-symbol {
+    width: 20rem;
+    margin: 0 auto;
+}
+
+footer .nm-container h2 {   
+    font-family: var(--tipo-encabezado);
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--color-black);
+    margin: 0 0 3rem 0;
+}
+
+
+footer h4 {
+    font-size: 2rem;
+    letter-spacing: 0.3rem;
+    font-weight: 400;
+    color: var(--color-white);
+    margin: 0 auto; /* Para que centre los textos */
+    padding-bottom: 1rem;
+    width: max-content; /* Hago que el ancho de la etiqueta sea igual al contenido de la misma */ 
+}
+
+footer.ch__color h4 {
+    color: var(--tertiary);
+    font-weight: 600;
+}
+
+
+
+footer h4::after {
+    content: '';
+    border-bottom: 1px solid var(--color-white);
+    /* width: 70%; */
+    display: block;
+    margin: 0 auto;
+    padding-top: 0.3rem;
+}
+
+footer.ch__color h4::after {
+    border-bottom: 1px solid var(--tertiary);
+}
+
+
+footer ul {
+    padding: 0;
+}
+
+footer ul li a {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    color: var(--color-white);
+}
+
+footer.ch__color ul li a {
+    color: var(--tertiary);
+    font-weight: 600;
+}
+
+
+footer a:hover {
+    color: var(--color-white);
+    font-weight: 600;
+}
+
+
+
+footer .row .col-md-6:nth-child(1) .menu-title {
+    margin-top: 2rem;
+}
+
+
+footer .row .col-md-6:nth-child(2) .menu-title {
+    margin-top: 4rem;
+}
+
+
+footer .nm-container .w-border {
+    padding: 2rem 0;
+    border-top: solid 1px var(--color-white);
+  
+}
+
+footer .nm-container p,
+footer .nm-container span,
+footer .nm-container .legal__area a {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    color: var(--color-white);
+    margin: 0;
+
+}
+
+footer .nm-container .sm p, footer .nm-container .sm span {
+    font-size: 1rem;
+    line-height: 2.5rem;
+    color: var(--color-white);
+    margin: 0;
+}
+
+
+
+footer.ch__color .nm-container p {
+    color: var(--tertiary);
+    font-weight: 600;
+}
+
+
+footer .buttons {
+    display: flex;
+    justify-content: center;
+}
+footer .buttons img {
+    height: 3rem;
+    width: auto;
+    
+}
+
+footer h5 {
+    color: var(--color-white);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+footer .buttons a {
+    padding: 0.5rem 2rem;
+    margin: 1rem;
+}
+
+
+
+footer .top__bottom__footer .kit-digital-div img {
+    margin: 3rem auto;
+    height: 4rem;
+}
+
+
+
+
+
+
+.nmh__float__module__contact {
+    position: fixed;
+    /* Eliminamos el ancho para que se ajuste al contenido */
+    /* width: 30rem; */ 
+    height: auto;
+    text-align: center;
+    background-color: transparent; /* Lo hacemos transparente para que no se vea un recuadro */
+    /* border-radius: 2rem; */ /* Opcional, puedes quitarlo si no quieres fondo */
+    /* bottom: 2%; */ /* Eliminamos el posicionamiento inferior */
+    left: 20px; /* Posicionamiento a la izquierda */
+    top: 50%; /* Centrado verticalmente */
+    transform: translateY(-50%); /* Ajuste fino para el centrado vertical */
+    z-index: 1000020;
+}
+
+.nmh__float__module__contact .nmh__menu__footer__sticky .nmh__list__sticky {
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Cambiamos la dirección a columna para que los iconos se apilen */
+    justify-content: space-around;
+    align-items: center;
+    padding: 0; /* Eliminamos el padding horizontal */
+    margin: 0 !important;
+    gap: 1.5rem;
+}
+
+/* Espaciado entre los iconos */
+.nmh__float__module__contact .nmh__menu__footer__sticky .nmh__list__sticky li {
+    margin-bottom: 15px; /* Añadimos un margen inferior a cada elemento de la lista */
+}
+
+
+/* Estilos para los iconos y su fondo redondeado */
+.nmh__float__module__contact .nmh__menu__footer__sticky .nmh__list__sticky a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px; /* Ancho del círculo */
+    height: 50px; /* Alto del círculo */
+    background-color: #f0f0f0; /* Color de fondo del círculo */
+    border-radius: 50%; /* Para que sea un círculo */
+    transition: background-color 0.3s;
+}
+
+.nmh__float__module__contact .nmh__menu__footer__sticky .nmh__list__sticky a:hover {
+    background-color: #e0e0e0; /* Color al pasar el ratón */
+}
+
+
+.nmh__float__module__contact .material-symbols-outlined {
+    color: var(--primary-color);
+    font-size: 30px;
+    position: relative;
+    vertical-align: middle;
+}
+
+
+.nmh__float__module__contact .nmh__menu__footer__sticky svg {
+    fill: var(--primary);
+    width: 25px; /* Ajustamos el tamaño del SVG si es necesario */
+    height: 25px; /* Ajustamos el tamaño del SVG si es necesario */
+}
+
+
+.nmh__float__module__contact .nmh__menu__footer__sticky svg:hover {
+    fill: var(--black);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer-kit-digital img {
+    margin: 1rem auto;
+}
+
+
+
+/*******************************************************
+ *                         360 px
+ *******************************************************/ 
+ @media only screen and (min-width: 22.5em) {      
+    
+
+    
+    /* GLOBAL */
+    
+    .nm__container {
+        margin: 0 3rem;
+    }
+        
+
+    /* SECTION 2 */
+
+    .octobookpax.Large > div > select,
+    .octobook .octobooksubmit {
+        width: 17rem;
+    }
+
+
+
+
+
+
+    /************************/
+    /*       PROPERTIES     */
+    /************************/
+
+
+
+    .main-properties-section {
+        padding: 2rem 4rem;
+    }
+
+
+
+
+
+    
+    /*    SINGLE APPARTMENT   */
+    /************************/
+
+    .row-img-gallery .nmh-slider {
+        width: 32rem;
+    }
+
+
+
+
+/* **************************************** */
+/*                CONTACTO                  */
+/* **************************************** */
+
+
+.contact__hebe__hero .w-img {      
+    height: 37rem;    
+}
+
+
+.contact__hebe__hero h1 {   
+    font-size: 4.7rem;   
+    padding-top: 15rem; 
+
+}
+
+
+
+    
+
+        
+    /* **************************************** */
+    /*                  FOOTER                  */
+    /* **************************************** */
+
+
+    .container-chat {        
+        bottom:4rem;
+        right: 2rem;         
+    }
+
+
+    .container-chat img {           
+        width: 4rem;
+        height: auto;       
+    }
+
+    footer .nm-container .sm p, footer .nm-container .sm span {
+        font-size: 1.2rem;
+    }
+
+
+
+
+
+
+
+
+}
+
+/*******************************************************
+ *                         480 px
+ *******************************************************/   
+ @media only screen and (min-width: 30em) {    
+    
+    /*     GLOBAL     */
+
+
+    .nm__container {
+        margin: 0 4rem;
+    }
+
+
+
+.logo {    
+    height: 7rem;    
+}
+
+
+
+
+
+.overlay-text h1 {
+    font-size: 3.8rem;
+}
+
+
+
+
+
+
+
+    /*   SECTION 3  */
+
+    .apartment-card img {
+        height: 20rem; 
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* PROPERTIES */
+
+    .propertie_content .content-detail {
+        flex-direction: row;
+    }
+
+    .grid-format {    
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
+    .propertie_content .content-detail p {
+        padding-left: 0.2rem;
+    }
+
+
+
+
+    
+    /*    SINGLE APPARTMENT   */
+    /************************/
+
+
+    
+
+    .referencies .ref-col p {
+        flex-direction: row;
+     }
+     
+ 
+     .row-img-gallery .nmh-slider {
+         width: 42.8rem;
+     }
+ 
+
+     .single-container .col-12.content-detail {
+        margin: 3rem auto 5rem auto;
+    }
+ 
+     .property-explanation {
+        padding: 0 4rem;
+     }
+
+
+
+     .map__container {
+        padding: 0 4rem;
+    }
+
+
+    .form-container {
+        margin: 5rem 4rem;
+    }
+
+
+
+
+
+
+
+
+/* **************************************** */
+/*                ZONA INVERSOR             */
+/* **************************************** */
+
+    
+
+.dynamic-content__container {
+    padding: 2rem 4rem;
+}
+
+
+
+.dynamic-content__container img {   
+    height: 230px;
+}
+
+
+
+
+
+
+
+/*                  BLOG                   */
+/* *************************************** */
+
+
+
+.blog__content .archive-item {
+    flex: 0 0 100%; /* Una columna en pantallas pequeñas */
+}
+
+.blog__content .post-thumbnail img {
+    width: 100%;
+    height: 20rem;
+}
+
+
+
+/*             BLOG - ARCHIVO              */
+/* *************************************** */
+
+
+.archive .post__main__image {
+    width: 100%;
+    height: 30rem;    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* **************************************** */
+/*                CONTACTO                  */
+/* **************************************** */
+
+
+.contact__hebe__hero .w-img {      
+    height: 48rem;    
+}
+
+
+.contact__hebe__hero h1 {   
+    padding-top: 20rem; 
+
+}
+
+
+
+.contact-data .col-icon {
+    text-align: right;
+}
+
+
+
+.contact__hebe__body .content-contact #responsive-form .fe-acceptance-rgpd {
+    margin: 1rem 0 1.5rem 0;
+}
+
+.contact__hebe__body .content-contact #responsive-form .fe-acceptance-rgpd p, 
+.contact__hebe__body .content-contact #responsive-form .fe-acceptance-rgpd a {
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+}
+
+
+  
+/* **************************************** */
+/*          GRACIAS POR CONTACTAR           */
+/* **************************************** */
+
+
+
+.thank-text {
+    margin-top: 18rem;
+    
+}
+
+
+
+
+
+
+    
+
+    /* **************************************** */
+    /*               FOOTER                     */
+    /* **************************************** */
+
+    .container-chat img {    
+        
+        width: 6rem;
+        height: auto;
+        
+    }
+
+
+    
+    footer .top__bottom__footer .kit-digital-div img {
+        margin: 3rem auto;
+        height: 8rem;
+    }
+
+
+    
+img.kit-digital-logo {
+    margin: 3rem auto;
+        height: 5rem;
+}
+
+
+
+
+
+
+
+
+ }
+
+/*******************************************************
+ *                         600 px
+ *******************************************************/ 
+@media only screen and (min-width: 37.5em) {   
+    
+
+    /*     GLOBAL        */
+    
+    .nm__container {
+        margin: 0 6rem;
+    }
+     
+
+    p, strong, li, span {
+        font-size: 1.5rem;        
+    }
+
+    .w-sm-80 {
+        width: auto;
+    }
+
+    .mx-sm-3 {
+        margin-right: 1rem !important;
+        margin-left: 1rem !important;
+    }
+
+
+    
+   
+
+    /*   SECTION 3  */
+
+    .apartment-card img {
+        height: 27rem; 
+    }
+
+
+
+    
+/* SECTION 5 */
+
+/* 
+.section__five .text__container {
+    padding: 5rem 5rem;
+} */
+
+
+
+
+
+
+
+
+/* SECTION 6 */
+
+.section__six picture img {
+    min-height: 60rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*    SINGLE APPARTMENT   */
+    /************************/
+
+    .row-img-gallery .nmh-slider {
+        width: 52.8rem;
+    }
+
+
+       
+    .single-container .property-explanation p,
+    .single-container .property-explanation h3 {
+       padding: 0 5rem;
+    }
+
+
+    .single-container .property-explanation strong span {
+       font-weight: 600;
+    }
+
+
+
+    
+
+    .map__container {
+        padding: 0 5rem;
+    }
+
+
+    .form-container {
+        margin: 5rem 6rem;
+    }
+
+
+
+
+
+
+/* **************************************** */
+/*                ZONA INVERSOR             */
+/* **************************************** */
+
+
+.dynamic-content__container img {   
+    height: 300px;
+}
+
+    
+  
+/* **************************************** */
+/*                CONTACTO                  */
+/* **************************************** */
+
+
+
+.contact__hebe__hero .w-img {      
+    height: 76rem;    
+}
+
+
+.contact__hebe__hero h1 {   
+    font-size: 6.8rem;    
+    padding-top: 36rem; 
+}
+
+.contact__hebe__body .content-contact .subtitle h3 {
+    font-size: 3.5rem;
+
+
+}
+
+
+.contact__hebe__body .content-contact .contact-data p {
+    font-size: 1.6rem;
+    line-height: 2.8rem;
+}
+
+
+#responsive-form label {    
+    font-size: 1.4rem;   
+    line-height: 2.7rem; 
+}
+
+
+#responsive-form input, #responsive-form select, #responsive-form textarea {    
+    font-size: 1.8rem;
+}
+
+
+#responsive-form .fe-first-layer p, #responsive-form .fe-first-layer strong {
+    font-size: 0.9rem;
+    line-height: 1.3rem;
+}
+
+
+#responsive-form .btn-enviar-datos {
+    margin: 3rem auto 2rem auto;
+    padding: 1rem 0 1rem 0;
+    width: 16rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    /****************************/
+    /*         FOOTER           */
+    /****************************/
+
+    .container-chat img {    
+        width: 7rem;
+        height: auto;
+    }
+
+        
+    footer .logo-symbol {
+        width: 30rem;
+        margin: 0 auto;
+    }
+
+
+    footer .nm-container h2 {
+    
+        font-size: 3rem;
+        
+    }
+
+    footer .nm-container p, footer .nm-container .legal__area a {
+        font-size: 2.2rem;
+        line-height: 3.4rem;
+    }
+
+    footer h4 {
+        font-size: 2.4rem;
+    }
+
+
+
+    footer ul li a {
+        font-size: 2.2rem;
+        line-height: 3.4rem;
+        
+    }
+
+
+
+
+}
+
+/*******************************************************
+ *                         768 px
+ *******************************************************/ 
+@media (min-width: 48em) {  
+
+
+    /*     GLOBALES      */
+
+
+    .nm__space__between__columns__right {
+        padding-right: 6rem;
+    }
+    
+
+
+    .logo {
+        height: 8rem;
+        margin-left: 6rem;
+    }
+
+
+.hamburger-btn {  
+    margin-right: 9rem;
+}
+
+
+
+    /* SECTION 2 */
+
+    .section__two {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+
+
+
+
+
+    /* SECTION 3 */
+
+    .section__three .nm__container {
+        margin: 5rem 5% 3rem 5%;
+    }
+
+    
+
+    .apartment-card img {
+        height: 35rem; 
+    }
+
+
+
+    
+.section__three .sacd__cont {
+    padding: 5rem 8rem;
+}
+    
+
+
+
+    /* SECTION 5 */
+
+/* 
+.section__five .text__container {
+    padding: 5rem 2rem;
+} */
+
+
+
+.section__five .img__stn .image-container img {
+    object-position: center bottom;
+}
+
+
+
+
+
+
+
+
+
+
+    /*    SINGLE APPARTMENT   */
+    /************************/
+
+
+
+    .single-container {
+        margin: 1.5rem 5rem;
+    }
+
+    .single-container .property-header-container {
+        padding: 5rem 5rem 6rem 5rem;
+    }
+
+
+    
+    .referencies {
+        justify-content: center;     
+        align-items: center;   
+    }
+
+    .referencies .ref-col p {
+        font-size: 1.5rem;
+        font-weight: 400;
+     }
+
+
+     .referencies .ref-col .material-symbols-outlined {
+        margin-right: 1rem;
+    }
+
+
+    .row-img-gallery .nmh-slider {
+        width: 74rem;
+    }
+
+
+    .single-properties .single-container h1,
+    .single-properties_long_term .single-container h1 {
+        font-size: 2.5rem;
+        margin-top: 3rem;
+        margin-bottom: 4.5rem;
+    }
+
+
+    .single-container .property-explanation p,
+    .single-container .property-explanation h3 {
+        padding: 0 12.9rem;
+    }
+
+    
+
+    .map__container {
+        padding: 0 12rem;
+    }
+
+
+    .form-container {
+        margin: 5rem 12rem;
+    }
+    
+  
+
+
+
+
+
+
+/* **************************************** */
+/*                ZONA INVERSOR             */
+/* **************************************** */
+
+.dynamic-content__container .left__col.order-lg-1 {
+    padding: 0 3rem 0 0;
+}
+
+
+.dynamic-content__container .left__col.order-lg-2 {
+    padding: 0 0 0 3rem;
+}
+
+
+.dynamic-content__container img {   
+    height: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*                  BLOG                   */
+/* *************************************** */
+
+
+
+    .blog__content .archive-item {
+        flex: 0 0 calc(50% - 20px); /* Dos columnas en pantallas medianas */
+    }
+
+
+.blog__content .post-thumbnail img {
+    width: 100%;
+    height: 20rem;
+}
+
+
+
+/*             BLOG - ARCHIVO              */
+/* *************************************** */
+
+
+.archive .post__main__image {
+    width: 100%;
+    height: 40rem;    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* **************************************** */
+/*                CONTACTO                  */
+/* **************************************** */
+
+
+
+.contact__hebe__hero .w-img {      
+    height: 89rem;    
+}
+
+
+.contact__hebe__hero h1 {
+    font-size: 8.7rem;
+    padding-top: 35rem;
+}
+
+
+div#responsive-form {
+    margin: 0 3rem;
+}
+
+
+
+  
+/* **************************************** */
+/*          GRACIAS POR CONTACTAR           */
+/* **************************************** */
+
+
+
+.thank-text {
+    margin-top: 23rem;    
+}
+
+
+.thank-text h3 {
+    margin: 0 auto;
+    text-align: center;
+    color: var(--color-white);
+    font-size: 2.5rem;
+}
+
+
+.thank-text-2 {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+.thank-text-2 h4 {    
+    margin: 0 auto;
+    text-align: center;
+    color: var(--color-white);
+    font-size: 2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    /*******************/
+    /*     FOOTER      */
+    /*******************/
+
+
+
+    
+    footer .logo-symbol {
+        width: 20rem;
+        margin: 0 auto;
+    }
+
+
+    footer .nm-container p {
+        font-size: 1.7rem;
+        line-height: 2.4rem;
+    }
+
+
+    footer .row .col-md-6:nth-child(2) .menu-title {
+        margin-top: 2rem;
+    }
+
+    footer ul li a {
+        font-size: 1.7rem;
+        line-height: 2.4rem;
+    }
+
+
+    footer .nm-container .legal__area a,
+    footer .nm-container .legal__area p,
+    footer .nm-container .sm p {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        text-align: center;
+    }
+
+
+
+
+
+
+
+
+}
+
+/*******************************************************
+ *                         960 px
+ *******************************************************/ 
+@media (min-width: 60em) { 
+    
+    
+
+
+    /*    Navigation     */
+    /*-------------------*/
+    
+    /* Versión apaisado */
+    .logo-container {
+        margin-left: 20px;
+        width: 100%;
+    }
+
+    .logo {
+        margin-top: 0px;
+        margin-left: 30px;
+        height: 8rem;
+    }
+
+    .height-logo-scrolled {
+        height: 40px!important;
+    }
+
+    nav {
+        /* height: 100px; */
+        background-color: transparent;
+    }
+
+    .hamburger-btn {
+        display: none;
+    }
+
+    .nav-list {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        text-align: left;
+        /* padding: 0rem 3rem 3rem 3rem; */
+        background: transparent;
+        margin-bottom: 0rem;
+        margin-right: 3rem;
+    }
+
+    .nav-list .first-item {
+        margin-top: 0;
+    }
+    
+    .nav-list li {
+        display: inline-block;
+        opacity: 1;
+        margin: 0 0.8rem;
+        transition: none;
+        /* height: 3rem; */
+    }
+
+    .nav-list li:nth-child(1) {
+        margin-top: 0;
+    }
+
+    .nav-list li a {            
+        font-size: 1.5rem;
+        letter-spacing: 0.2px;
+    }
+
+    .nav-list li.trp-language-switcher-container.first__language__item {
+        margin-right: 0;
+    }
+
+    .nav-list li.trp-language-switcher-container.first__language__item a .trp-ls-language-name {
+        padding-right: 0.5rem;
+        border-right: solid 1px var(--color-white);
+    }
+
+    .nav-list li.trp-language-switcher-container.first__language__item a {
+        padding: 0;
+    }
+
+    .nav-list li.trp-language-switcher-container li a span::before {
+        content: '|';
+        margin: 0 0.3rem;
+    }
+
+    .trp-language-switcher-container a {
+        padding: 0!important;
+    }
+
+    .trp-ls-language-name {
+        font-size: 1.6rem;
+    }
+
+    .nav-list li a.active, .nav-list li a:hover {
+        color: var(--secondary);
+    } 
+
+    .nav-list .sub-menu {
+        display: none;
+        position: absolute;
+        padding-top: 2rem; 
+        margin-top: 1rem;   
+        text-align: left;
+        background-color: var(--tertiary);
+        width: 26rem;
+        border-radius: 1rem;
+    }
+
+    .nav-list li:hover > .sub-menu {
+        display: flex;
+        flex-direction: column;        
+    }
+
+    .nav-list .sub-menu li {
+        margin: 0 0.5rem 0 0;
+        width: 18rem;
+        height: 3rem;   
+    }
+
+
+
+
+    /* Navigation - Versión vertical */
+    /* nav {
+        flex-direction: column;
+        padding-top: 1rem;
+    }
+
+    .logo-container {
+        align-items: center;
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    .logo.logo__nav__apaisada {
+        display: none;
+    }
+
+    .logo.logo__nav__vertical {
+        display: block;
+    }
+
+    .logo {
+        margin-left: 0;
+        height:6rem;
+    }
+
+    .nav-list {
+        justify-content: center;
+        margin-right: 0;
+        padding: 1rem 3rem 3rem 3rem;
+    } */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*   SECTION 3  */
+
+    .apartment-card img {
+        height: 44rem; 
+    }
+
+
+
+
+
+
+
+
+
+    /* SECTION 5 */
+
+    .section__five img {
+        height: 50rem;
+    }
+
+
+
+/* SECTION 7 */
+
+    
+.section__seven .video-section {
+    padding: 2rem 15rem;
+}
+
+
+
+
+
+
+
+        /*      PROPERTIES      */
+        /************************/
+
+
+
+        .grid-format {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .main-properties-section {
+            padding: 2rem 7rem;
+        }
+
+
+
+
+
+
+        
+
+        /*    SINGLE APPARTMENT   */
+        /************************/
+
+        .single-properties .content .thumbnail-post,
+        .single-properties_long_term .content .thumbnail-post,
+        .single-properties .img-fluid,
+        .single-properties_long_term .img-fluid {
+            width: 100%;
+            height: 100vh!important;
+        }
+
+        .single-properties .content .property-explanation,
+        .single-properties_long_term .content .property-explanation {
+            margin: 4rem 5rem;
+        }
+
+        .single-properties .content .property-explanation p,
+        .single-properties_long_term .content .property-explanation p,
+        .single-properties .content .property-explanation span,
+        .single-properties_long_term .content .property-explanation span {
+            font-family: var(--tipo-parrafo);
+            font-size: 1.4rem;
+            line-height: 2rem;
+            font-weight: 300;
+        }
+
+
+
+        .single-properties .content .property-explanation strong span,
+        .single-properties_long_term .content .property-explanation strong span {
+            font-weight: 600;
+        }
+
+
+
+
+        .row-img-gallery .nmh-slider {
+            width: 94rem;
+        }
+
+
+        
+    .single-container .property-explanation p,
+    .single-container .property-explanation h3 {
+        padding: 0 20rem;
+    }
+
+
+
+
+
+      
+
+    .map__container {
+        padding: 0 18rem;
+    }
+
+
+    .form-container {
+        margin: 5rem 12rem;
+    }
+    
+
+
+
+
+    
+
+/* **************************************** */
+/*                ZONA INVERSOR             */
+/* **************************************** */
+
+
+.dynamic-content__container img {   
+    height: 250px;
+}
+
+
+
+
+
+
+
+
+
+/* **************************************** */
+/*                    BLOG                  */
+/* **************************************** */
+
+    
+    .blog__content .archive-item {
+        flex: 0 0 calc(33.333% - 20px); /* Tres columnas, considerando el espaciado */
+        box-sizing: border-box;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* **************************************** */
+/*                CONTACTO                  */
+/* **************************************** */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /****************************/
+    /*          FOOTER          */
+    /****************************/
+
+    footer .nm-container h2 {
+        font-size: 3rem;
+    }
+
+    footer .nm-container p {
+        font-size: 2.2rem;
+        line-height: 2.4rem;
+    }
+
+    footer h4 {
+        font-size: 2.5rem;
+    }
+
+    footer ul li a {
+        font-size: 2rem;
+        line-height: 2.8rem;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+/*******************************************************
+ *                         992 px
+ *******************************************************/ 
+
+   
+@media (min-width: 992px) {
+
+
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+/*******************************************************
+ *                         1024 px
+ *******************************************************/ 
+@media (min-width: 64em) { 
+    
+    
+
+
+    /* SECTION 3 */
+
+    .apartments-slider {
+        margin-left: 5rem;
+    }
+
+    .apartment-card img {
+        height: 40rem; 
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* SECTION 4 */
+
+    .section__four {
+        padding-top: 0;
+        /* padding-bottom: 8rem; */
+    }
+
+    .section__four .nm__container {
+        margin: 0;
+    }
+
+    .section__four .row>* {
+        padding-left: 0;
+    }
+
+    .section__four .desktop-layout-wrapper {
+        display: grid;
+        /* Definimos una sola celda que ocupará todo el espacio */
+        grid-template-columns: 1fr;
+        grid-template-rows: auto; /* La altura de la fila se ajustará al contenido */
+        position: relative; /* Para contexto de z-index de los hijos */
+        /* La altura total de esta grid será la del contenido más "alto" o "profundo" */
+    }
+
+    .section__four .image-background-block {
+        /* Colocamos la imagen en la celda del grid */
+        grid-column: 1 / -1; /* Ocupa desde la primera a la última línea de columna */
+        grid-row: 1 / -1;    /* Ocupa desde la primera a la última línea de fila */
+
+        width: 70%;          
+        margin-right: auto;   
+        position: relative;  /* Para que z-index funcione */
+        z-index: 1;          /* Detrás del texto */
+        min-height: 70vh;                                  
+    }
+
+    .section__four .section-four-image {
+        display: block;
+        width: 100%;
+        height: 100%;        /* Para que la imagen llene la altura de image-background-block */
+        object-fit: cover;           
+        max-height: 90rem;
+        
+    }
+
+    .section__four .text-content-block {
+        /* Colocamos el texto en la misma celda del grid para superponer */
+        grid-column: 1 / -1;
+        grid-row: 1 / -1;
+
+        width: 70%;          
+        max-width: 800px;    
+        position: relative;  /* Para que z-index funcione y para márgenes */
+        z-index: 2;          /* Encima de la imagen */
+
+        
+        margin-top: clamp(60px, 10vh, 120px);  
+        /* margin-left: clamp(40px, 5vw, 80px);    */
+        margin-left: clamp(40px, 30vw, 340px); 
+        margin-bottom: 20px; /       
+    }
+
+    .section__four .text-inner-content {
+        background-color: rgba(255, 255, 255, 0.90); /* Fondo ligeramente translúcido opcional */
+        padding: 30px;
+        box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+        border-radius: 8px;
+        /* La altura de este bloque se determinará por su contenido. */
+    }
+
+
+
+
+
+
+
+
+/* SECTION 8 */
+
+
+.section__eight .form-container,
+#footer-section-form .form-container {
+    margin: 5rem 5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* APPARTMENTS */
+    
+    
+
+            
+    /*    SINGLE APPARTMENT   */
+    /************************/
+
+    .main-properties-section {
+        padding: 2rem 10rem;
+    }
+
+
+    .row-img-gallery .nmh-slider {
+        width: 100rem;
+    }
+
+
+
+    .property-header .property-description {
+        margin-top: 0rem;
+    }
+        
+    .single-container .property-explanation p,
+    .single-container .property-explanation h3 {
+        padding: 0 20rem;
+    }
+
+
+
+    .property-header-container .property-description {
+        margin-top: 1rem;
+    }
+
+      
+
+    .map__container {
+        padding: 0 18rem;
+    }
+
+
+    .form-container {
+        margin: 5rem 25rem;
+    }
+    
+
+
+
+
+
+
+
+/* **************************************** */
+/*                ZONA INVERSOR             */
+/* **************************************** */
+
+    
+
+.dynamic-content__container {
+    padding: 2rem 10rem;
+}
+
+
+
+
+.dynamic-content__container img {   
+    height: 240px;
+}
+
+
+
+
+
+
+
+
+
+
+/* **************************************** */
+/*                CONTACTO                  */
+/* **************************************** */
+
+
+
+
+.contact__hebe__body .content-contact .subtitle h3 {
+    font-size: 2.5rem;
+}
+
+
+
+.contact__hebe__body .content-contact .subtitle.plus__padding h3 {
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+
+
+div#responsive-form {
+    margin: 0 2rem;
+}
+
+
+.contact__hebe__body #responsive-form label {
+    font-size: 1.6rem;
+    line-height: 2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /****************************/
+    /*         FOOTER           */
+    /****************************/
+
+    footer .nm-container p {
+        font-size: 2.4rem;
+        line-height: 2.4rem;
+    }
+
+
+    footer .nm-container .legal__area a {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        padding: 0 1.8rem;
+    }
+
+
+    footer .nm-container .legal__area p,
+    footer .nm-container .sm p {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+
+
+
+
+
+
+
+
+
+
+}
+/*******************************************************
+ *                         1200 px
+ *******************************************************/   
+@media (min-width: 75em) {  
+    
+    
+/*    GLOBALS       */
+
+.nm__container {
+    margin: 0 20rem;
+}
+
+
+
+
+/* SECTION 2 */
+
+.section__two {
+    padding-top: 6rem;
+    padding-bottom: 6rem;    
+}
+
+
+section.text-columns .two-columns {
+    padding-top: 2rem;
+    column-count: 2;
+    column-gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+/* SECTION 3 */
+
+
+    .section__three .nm__container {
+        margin: 5rem 5% 3rem 5%;
+    }
+
+
+    .apartments-slider {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .apartment-card img {
+        height: 35rem; 
+    }
+
+
+        .section__three .sacd__cont {
+        padding: 5rem 30rem;
+    }
+
+/* SECTION 4 */
+    .section__four .text-content-block {
+        width: 52%;
+    }
+
+    .section__four .text-content-block {
+       
+        margin-left: clamp(554px, 30vw, 447px); 
+              
+    }
+
+
+
+/* SECTION 5 */
+
+    /* .section__five .text__container {
+        padding: 5rem 6rem;
+    }
+ */
+
+
+
+
+/* SECTION 7 */
+
+    
+.section__seven .video-section {
+    padding: 2rem 20rem;
+}
+
+
+
+
+
+
+
+
+    
+/* SINGLE APPARTMENT */
+/* *************** */
+
+
+    .single-container .property-explanation p,
+    .single-container .property-explanation h3 {
+        padding: 0 30rem;
+    }
+
+        
+    .map__container {
+        padding: 0 25rem;
+    }
+
+
+    .form-container {
+        margin: 5rem 30rem;
+    }
+    
+
+
+
+
+/* **************************************** */
+/*                ZONA INVERSOR             */
+/* **************************************** */
+
+ .dynamic-content__container .row__wrapper {
+    margin: 8rem auto;
+}
+
+.dynamic-content__container img {   
+    height: 295px;
+}
+
+
+
+
+
+    
+/*********************/
+/*      CONTACTO     */
+/*********************/
+
+
+div#responsive-form {
+    margin: 0 4rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+/*******************************************************
+ *                         1300 px
+ *******************************************************/   
+ @media (min-width: 81.25em) {        
+    
+
+
+    /* NAVIGATION MENÚ */
+
+    .nm-nav {
+        /* padding: 0 5rem 0 3rem; */ /* Comentar para navegación vertical */
+    }
+
+
+
+    /* Vertical navigation */
+
+   
+
+
+
+    /* SECTION 3 */
+
+
+
+    .apartment-card img {
+        height: 40rem; 
+    }
+
+
+
+
+
+
+/* SECTION 4 */
+
+.section__four .text-content-block {
+        width: 45%;
+        /* margin-left: clamp(40px, 10vw, 130px); */
+         margin-left: clamp(560px, 30vw, 500px); 
+    }
+
+
+
+
+
+    
+
+/* SECTION 5 */
+/* 
+.section__five .text__container {
+        padding: 5rem 10rem;
+    }
+ */
+
+
+
+
+
+
+
+/* SECTION 7 */
+
+    
+.section__seven .video-section {
+    padding: 2rem 30rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*    SINGLE APPARTMENT   */
+    /************************/
+
+
+    
+
+    .single-container {
+        margin: 1.5rem 10rem;
+    }
+
+    .single-container .property-header-container {
+        padding: 5rem 10rem 6rem 10rem;
+    }
+
+
+    .row-img-gallery .nmh-slider {
+        width: 127rem;
+    }
+
+    .single-properties .content .property-explanation,
+    .single-properties_long_term .content .property-explanation {
+        margin: 4rem 15rem;
+    }
+
+    .form-container {
+        margin: 5rem 19rem;
+    }
+
+    .single-properties .content .property-explanation p,
+    .single-properties_long_term .content .property-explanation p {
+        font-size: 1.6rem;
+        line-height: 2.5rem;
+        font-weight: 300;
+    }
+
+
+
+
+    .single-container .property-explanation p,
+    .single-container .property-explanation h3 {
+        padding: 0 30rem;
+    }
+
+        
+    .map__container {
+        padding: 0 30rem;
+    }
+
+
+    .form-container {
+        margin: 5rem 35rem;
+    }
+    
+
+
+
+
+
+    
+
+/* **************************************** */
+/*                ZONA INVERSOR             */
+/* **************************************** */
+
+    
+
+.dynamic-content__container {
+    padding: 2rem 12rem;
+}
+
+
+    
+.dynamic-content__container img {   
+    height: 310px;
+}
+
+
+    
+ 
+
+
+/* ************************ */
+/*         CONTACT          */
+/* ************************ */
+
+
+
+.contact__hebe__hero h1 {
+    padding-top: 25rem;
+}
+
+
+
+
+
+
+
+ }
+
+
+
+
+/*******************************************************
+ *                         1360 px
+ *******************************************************/   
+ @media (min-width: 85em) {        
+    
+
+
+/* **************************************** */
+/*                CONTACTO                  */
+/* **************************************** */
+
+
+.contact__hebe__hero .w-img {
+    height: 79rem;
+}
+
+.contact__hebe__body .content-contact {
+    margin-top: -22%!important;
+}
+
+
+
+
+
+
+
+
+
+ }
+
+
+
+
+
+
+
+
+/*******************************************************
+ *                         1600 px
+ *******************************************************/  
+@media (min-width: 100em) {   
+    
+     
+/*    GLOBLES       */
+
+.nm__container {
+    margin: 0 28rem;
+}
+
+
+
+
+    /* NAVIGATION MENÚ */
+
+    .nm-nav {
+        /*padding: 0 7rem;*/  /* Comentar para navegación vertical */
+    }
+
+
+
+/* SECTION 3 */
+
+
+
+.apartments-slider {
+    margin-left: 8rem;
+    margin-right: 8rem;
+}
+
+.apartment-slide img {
+        height: 45rem;
+    }
+
+
+
+
+
+
+
+
+/* SECTION 4 */
+
+    .section__four .text-content-block {
+        width: 39%;
+        /* margin-left: clamp(206px, 65vw, 300px); */
+        margin-left: clamp(647px, 130vw, 647px); 
+    }
+
+
+
+
+
+
+    /* SECTION 5 */
+
+/* 
+.section__five .text__container {
+    padding: 5rem 15rem;
+} */
+
+
+
+.section__five .img__stn .image-container img {
+    object-position: right bottom;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* APPARTMENTS */
+    
+.main-properties-section {
+    padding: 2rem 17rem;
+}
+
+
+
+    
+
+
+    /*    SINGLE APPARTMENT   */
+    /************************/
+
+
+    .row-img-gallery .nmh-slider {
+        width: 158rem;
+    }
+
+
+    .single-properties .content .property-explanation,
+    .single-properties_long_term .content .property-explanation {
+        margin: 4rem 25rem;
+    }
+
+    .form-container {
+        margin: 5rem 35rem;
+    }
+
+
+
+.single-container .property-explanation p,
+.single-container .property-explanation h3 {
+    padding: 0 45rem;
+}
+
+
+.map__container {
+    padding: 0 35rem;
+}
+
+
+.form-container {
+    margin: 5rem 45rem;
+}
+
+
+
+
+
+
+    
+
+/* **************************************** */
+/*                ZONA INVERSOR             */
+/* **************************************** */
+
+    
+.dynamic-content__container img {   
+    height: 390px;
+}
+
+
+
+
+    
+
+/* **************************************** */
+/*                CONTACTO                  */
+/* **************************************** */
+
+
+
+
+
+.contact__hebe__hero h1 {
+    padding-top: 35rem;
+}
+
+
+
+
+.contact__hebe__body .content-contact {
+    margin-top: -18%!important;
+    padding-bottom: 0rem;
+}
+
+
+
+
+div#responsive-form {
+    margin: 0 8rem;
+}
+
+
+
+
+
+
+
+/* **************************************** */
+/*                  FOOTER                  */
+/* **************************************** */
+
+
+footer .top__bottom__footer .kit-digital-div img {
+    margin: 3rem auto;
+    height: 10rem;
+}
+
+
+
+img.kit-digital-logo {
+    margin: 3rem auto;
+    height: 6rem;
+}
+
+.section__form .container-fluid {
+    width: 100%!important;
+    padding: 0 10rem!important;
+}
+.form-container {
+    padding: 3rem 4rem;    
+}
+
+
+
+
+}
+
+/*******************************************************
+ *                         1920 px
+ *******************************************************/  
+ @media (min-width: 120em) {     
+    
+
+        
+    /*    GLOBLES       */
+
+    .nm__container {
+        margin: 0 45rem;
+    }
+
+
+
+
+
+    
+    /* NAVIGATION MENÚ */
+
+    .nm-nav {
+        /*padding: 0 15rem;*/ /* Comentar para navegación vertical */
+    }
+
+
+
+    
+    /* SECTION 1 */
+
+
+    .booking__container {
+        top: 90%;
+        width: 60%;
+        border-radius: 1rem;
+    }
+
+
+
+        
+
+    /* SECTION 3 */
+
+    .apartment-card img {
+        height: 50rem;
+    }
+
+
+
+/* SECTION 4 */
+
+    .section__four .text-content-block {
+        width: 33%;
+        /* margin-left: clamp(206px, 65vw, 300px); */
+        margin-left: clamp(925px, 130vw, 925px); 
+    }
+
+
+
+
+
+    /* SECTION 5 */
+/* 
+    .section__five .text__container {
+        padding: 5rem 20rem;
+    }
+ */
+
+    
+
+
+/* APPARTMENTS */
+
+
+.main-properties-section {
+    padding: 2rem 34rem;
+}
+
+
+
+    
+
+    /*    SINGLE APPARTMENT   */
+    /************************/
+
+
+    .row-img-gallery .nmh-slider {
+        width: 190rem;
+    }
+
+    .single-properties .content .property-explanation,
+    .single-properties_long_term .content .property-explanation {
+        margin: 4rem 40rem;
+    }
+
+    .form-container {
+        margin: 5rem 50rem;
+    }
+
+
+  
+
+    
+/* SINGLE APPARTMENT */
+/* *************** */
+
+
+.single-container .property-explanation p,
+.single-container .property-explanation h3 {
+    padding: 0 60rem;
+}
+
+
+
+
+
+
+
+
+/* **************************************** */
+/*                ZONA INVERSOR             */
+/* **************************************** */
+
+    
+
+.dynamic-content__container {
+    padding: 2rem 25rem;
+}
+
+
+
+
+
+    
+
+/* **************************************** */
+/*                CONTACTO                  */
+/* **************************************** */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+/* **************************************** */
+/*          GRACIAS POR CONTACTAR           */
+/* **************************************** */
+
+
+
+.thank-text {
+    margin-top: 25rem;    
+}
+
+
+.thank-text h3 {
+ 
+    font-size: 3rem;
+}
+
+
+.thank-text-2 {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+.thank-text-2 h4 {    
+   
+    font-size: 2.5rem;
+}
+
+
+
+}
+
+
+/*******************************************************
+ *                         2560 px
+ *******************************************************/  
+ @media (min-width: 160em) {  
+
+    
+    
+    /*  GLOBALES  */
+
+    h2 {
+        font-size: 4rem;
+    }
+
+    h3 {
+        font-size: 3rem;
+    }
+
+    p, strong, li, span {
+        font-size: 1.8rem;
+        line-height: 3rem;
+    }
+
+    .nm__container {
+        margin: 0 60rem;
+    }
+    
+
+
+    
+    /* NAVIGATION MENÚ */
+
+    .nm-nav {
+        padding: 0 30rem;
+    }
+
+
+
+    
+    /*  SECTION 1   */
+
+    .booking__container {
+        top: 90%;
+        width: 65%;
+        border-radius: 1rem;
+    }
+
+
+
+
+    
+    /*  SECTION 3   */
+
+
+    .sub__container {
+        padding: 20px;
+        margin: auto 43rem;
+    }
+
+    .section__three .property__data .code__3423, 
+    .section__three .property__data .code__3423 strong,
+    .code__2312__description,
+    .property__details p { 
+        font-size: 1.8rem;
+    }
+
+    .section__three .img__property__home {
+        height: 36rem;
+    }
+
+
+
+
+
+
+
+    /* APPARTMENTS */
+
+
+
+
+    .main-properties-section {
+        padding: 2rem 59rem;
+    }
+
+
+
+
+
+
+}
+
+/*******************************************************
+ *                         3440 px
+ *******************************************************/  
+ @media (min-width: 215em) { 
+
+
+    /*  GLOBALES  */
+
+    h2 {
+        font-size: 4.5rem;
+    }
+
+    h3 {
+        font-size: 3.5rem;
+    }
+
+    p, strong, li, span {
+        font-size: 2rem;
+        line-height: 3.5rem;
+    }
+
+    .nm__container {
+        margin: 0 80rem;
+    }
+    
+    
+
+    
+    /* NAVIGATION MENÚ */
+
+    .nm-nav {
+        padding: 0 75rem;
+    }
+
+
+
+
+
+
+    
+    /*  SECTION 1   */
+
+    .booking__container {
+        top: 90%;
+        width: 50%;
+        border-radius: 1rem;
+    }
+
+    
+    /*  SECTION 3   */
+
+    .sub__container {
+        padding: 20px;
+        margin: auto 60rem;
+    }
+
+    .section__three .img__property__home {
+        height: 44rem;
+    }
+
+
+
+
+    /* APPARTMENTS */
+
+
+
+
+    .main-properties-section {
+        padding: 2rem 100rem;
+    }
+
+
+
+
+}
+
+/*******************************************************
+ *                         3840 px
+ *******************************************************/  
+ @media (min-width: 240em) {  
+    
+      /*  SECTION 3   */
+
+      .sub__container {
+        padding: 20px;
+        margin: auto 60rem;
+    }
+
+    .section__three .img__property__home {
+        height: 43rem;
+    }
+
+}
+
+/*******************************************************
+ *                         5120 px
+ *******************************************************/  
+ @media (min-width: 320em) {  
+
+ /*  SECTION 1  */
+
+    .booking__container {
+        top: 90%;
+        width: 40%;
+        border-radius: 1rem;
+    }
+
+
+
+ /*  SECTION 3   */
+
+    .sub__container {
+        padding: 20px;
+        margin: auto 100rem;
+    }       
+}
+
+/*******************************************************
+ *                         7680 px
+ *******************************************************/  
+ @media (min-width: 480em) {         
+
+
+
+    .sub__container {
+        padding: 20px;
+        margin: auto 170rem;
+    }
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
