@@ -140,6 +140,24 @@ add_action( 'wp_enqueue_scripts', function () {
 } );
 
 
+// ── Method page ────────────────────────────────────────────────────────────
+
+add_action( 'wp_enqueue_scripts', function () {
+
+    if ( ! is_page_template( 'page-templates/page-method.php' ) ) {
+        return;
+    }
+
+    wp_enqueue_style(
+        'nmh-method',
+        get_template_directory_uri() . '/assets/css/page-method.css',
+        array( 'nmh-site' ),
+        filemtime( get_template_directory() . '/assets/css/page-method.css' )
+    );
+
+} );
+
+
 // ── Página de Contacto ─────────────────────────────────────────────────────
 
 add_action( 'wp_enqueue_scripts', function () {

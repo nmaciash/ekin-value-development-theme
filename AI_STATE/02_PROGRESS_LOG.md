@@ -1,5 +1,38 @@
 # PROGRESS LOG
 
+## 2026-05-08 — Sesión 11: Fase 5 Method page ✅ + Contact traducción ✅
+
+### Completado
+- Creado `page-templates/page-method.php` (Template Name: Method, 4 secciones, ACF + fallbacks)
+- Creado `assets/css/page-method.css` (hero dark, phase-rows dark, disciplines light, CTA dark)
+- Enqueue condicional añadido en `inc/enqueue.php`
+- Iteraciones visuales tras capturas del usuario:
+  - Fondos de sección corregidos (phase-rows y disciplines estaban invertidos)
+  - Phase numbers: tamaño `clamp(52px,6vw,88px)`, Fraunces con `font-variation-settings: "opsz" 144, "SOFT" 50`
+  - Listas de fases: `var(--font-sans)` en vez de mono
+  - Hero h1 con `font-size: var(--t-h1)` explícito
+  - CTA dark como en el draft
+- `page-templates/page-contacto.php` traducido al inglés (fallbacks + labels + placeholders + botón)
+- `assets/css/page-contacto.css` — eliminado divisor `::before` entre secciones
+
+### Archivos modificados
+- `page-templates/page-method.php` — creado
+- `assets/css/page-method.css` — creado
+- `inc/enqueue.php` — bloque nmh-method añadido
+- `page-templates/page-contacto.php` — traducción EN
+- `assets/css/page-contacto.css` — eliminado `.contact-form-section::before`
+
+---
+
+## 2026-05-08 — Sesión 10: Deploy Home + arranque Fase 5
+
+### Completado
+- Home subido a producción vía SFTP ✅
+- Home verificado en navegador (escritorio + móvil) ✅
+- Fase 5 Method page iniciada
+
+---
+
 ## 2026-05-08 — Sesión 9: Menú hamburguesa ✅
 
 ### Bugs resueltos

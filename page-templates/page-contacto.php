@@ -5,10 +5,10 @@
 
 get_header();
 
-$hero_title = nmh_get_acf_field( 'con_hero_title', 'Contáctanos' );
-$hero_desc  = nmh_get_acf_field( 'con_hero_desc',  'Escríbenos, llámanos o visítanos en Marbella: estamos disponibles de lunes a viernes, de 9:00 a 18:00 h. Nos encantará conocerte, escucharte y ayudarte a hacer realidad tus ideas.' );
-$hero_bold  = nmh_get_acf_field( 'con_hero_bold',  'Tu nuevo comienzo empieza aquí.' );
-$form_title = nmh_get_acf_field( 'con_form_title', '¿Cómo podemos ayudarte?' );
+$hero_title = nmh_get_acf_field( 'con_hero_title', 'Get in Touch' );
+$hero_desc  = nmh_get_acf_field( 'con_hero_desc',  'Write to us, call us or visit us in Marbella. We are available Monday to Friday, 9:00 to 18:00. We would love to meet you, hear your goals and help you move forward.' );
+$hero_bold  = nmh_get_acf_field( 'con_hero_bold',  'Your next chapter starts here.' );
+$form_title = nmh_get_acf_field( 'con_form_title', 'How can we help you?' );
 ?>
 
 <main class="main-content main-page-wrapper contact__page">
@@ -41,26 +41,26 @@ $form_title = nmh_get_acf_field( 'con_form_title', '¿Cómo podemos ayudarte?' )
                         <?php wp_nonce_field( 'nmh_contact_submit', 'nmh_contact_nonce' ); ?>
 
                         <div class="nmh-form-group">
-                            <label for="nmh_name">Nombre</label>
-                            <input type="text" id="nmh_name" name="nmh_name" placeholder="Tu nombre completo" required>
+                            <label for="nmh_name">Name</label>
+                            <input type="text" id="nmh_name" name="nmh_name" placeholder="Your full name" required>
                         </div>
 
                         <div class="nmh-form-group">
                             <label for="nmh_email">Email</label>
-                            <input type="email" id="nmh_email" name="nmh_email" placeholder="tu@email.com" required>
+                            <input type="email" id="nmh_email" name="nmh_email" placeholder="you@email.com" required>
                         </div>
 
                         <div class="nmh-form-group">
-                            <label for="nmh_phone">Teléfono</label>
+                            <label for="nmh_phone">Phone</label>
                             <input type="tel" id="nmh_phone" name="nmh_phone" placeholder="+34 600 000 000">
                         </div>
 
                         <div class="nmh-form-group">
-                            <label for="nmh_message">Mensaje</label>
-                            <textarea id="nmh_message" name="nmh_message" placeholder="¿En qué podemos ayudarte?" required></textarea>
+                            <label for="nmh_message">Message</label>
+                            <textarea id="nmh_message" name="nmh_message" placeholder="How can we help you?" required></textarea>
                         </div>
 
-                        <button type="submit" class="nmh-submit">Enviar mensaje</button>
+                        <button type="submit" class="nmh-submit">Send message</button>
                     </form>
 
                 </div>

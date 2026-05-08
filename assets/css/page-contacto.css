@@ -187,15 +187,6 @@
   border-color: var(--accent);
 }
 
-/* ── Divisor entre secciones ──────────────────────────── */
-
-.contact-form-section::before {
-  content: "";
-  display: block;
-  height: 1px;
-  background: var(--ink-line);
-  margin-bottom: 0;
-}
 
 /* ── Ocultar sección listings (no aplica en contacto) ─── */
 

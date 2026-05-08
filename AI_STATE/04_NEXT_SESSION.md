@@ -19,22 +19,26 @@ Claude solo trabaja sobre archivos locales. No preguntar por subidas, no propone
 
 ---
 
-## Tareas pendientes (en orden de prioridad)
+## Primer paso exacto
 
-### 1. Primer paso — Fase 5: Method page
-Migrar `/draft/method.html` a un template WordPress nuevo.
-- Crear `page-templates/page-method.php`
-- Crear `assets/css/page-method.css` con tokens del draft
-- Encolar condicionalmente en `inc/enqueue.php` con `is_page_template('page-templates/page-method.php')`
-- Conectar campos ACF donde corresponda (fallbacks hardcodeados del draft)
+**Fase 6: Investor page**
+Leer `/draft/investor.html`, extraer secciones y crear:
+- `page-templates/page-investor.php`
+- `assets/css/page-investor.css`
+- Enqueue condicional en `inc/enqueue.php`
 
-### 2. Fases siguientes
+El usuario crea la página en WP Admin y asigna el template.
+
+---
+
+## Fases pendientes (en orden)
+
 - Fase 6: Investor page
 - Fase 7: Newsletter page
-- Fase 8: Tokens globales / unificación tipográfica en páginas legacy
-- Pendiente transversal: Plugin NMH Contact Forms + reactivar shortcode en `page-contacto.php`
+- Fase 8: Unificación tipográfica en páginas legacy
 
-### 3. Bugs menores abiertos (no bloquean)
+## Bugs menores abiertos (no bloquean)
 - 2 inline styles en `front-page.php` → mover a `front-page.css`
 - Páginas legacy con header fijo: verificar `padding-top` suficiente
 - Nav vacío si no hay menú asignado en WP admin
+- Plugin NMH Contact Forms: instalar y reactivar shortcode en `page-contacto.php`

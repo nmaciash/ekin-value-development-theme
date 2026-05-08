@@ -1,0 +1,305 @@
+/* ── Method page ─────────────────────────────────────────────────────────── */
+
+/* ── Hero ── */
+
+.method-hero {
+    background: var(--ink);
+    color: var(--bone);
+    padding: clamp(130px, 16vw, 200px) 0 clamp(80px, 9vw, 120px);
+}
+
+.method-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 5vw, 80px);
+    align-items: start;
+}
+
+.method-hero .eyebrow {
+    color: var(--bone-mute);
+    margin-bottom: 24px;
+    display: block;
+}
+
+.method-hero h1.display {
+    font-size: var(--t-h1);
+    color: var(--bone);
+    margin: 0;
+}
+
+.method-hero h1.display small {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: clamp(11px, 1vw, 13px);
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-top: 20px;
+    line-height: 1;
+}
+
+.method-hero .lede {
+    color: var(--bone-dim);
+    font-size: clamp(15px, 1.4vw, 18px);
+    line-height: 1.7;
+    margin-top: 0;
+    padding-top: clamp(24px, 3vw, 40px);
+}
+
+/* ── Phase rows — dark background ── */
+
+.phase-rows {
+    background: var(--ink);
+    padding: clamp(32px, 4vw, 64px) 0 clamp(80px, 9vw, 120px);
+    border-top: 1px solid var(--ink-line);
+}
+
+.phase-row {
+    display: grid;
+    grid-template-columns: 96px 1fr 2fr;
+    gap: clamp(24px, 3vw, 48px);
+    padding: clamp(40px, 5vw, 64px) 0;
+    border-bottom: 1px solid var(--ink-line);
+    align-items: start;
+}
+
+.phase-row:first-child {
+    border-top: 1px solid var(--ink-line);
+}
+
+.phase-num {
+    font-family: var(--font-display);
+    font-size: clamp(52px, 6vw, 88px);
+    font-weight: 300;
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+    line-height: 1;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    padding-top: 4px;
+}
+
+.phase-row h3 {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2vw, 28px);
+    font-weight: 300;
+    line-height: 1.25;
+    color: var(--bone);
+    margin: 0;
+    padding-top: 8px;
+}
+
+.phase-body p {
+    font-size: clamp(14px, 1.1vw, 16px);
+    line-height: 1.7;
+    color: var(--bone-dim);
+    margin: 0 0 20px;
+}
+
+.phase-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.phase-body ul li {
+    font-size: 13px;
+    font-family: var(--font-sans);
+    font-weight: 400;
+    color: var(--bone-mute);
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.5;
+}
+
+.phase-body ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+/* ── Disciplines — light background ── */
+
+.disciplines {
+    background: var(--paper);
+    color: var(--ink);
+    padding: clamp(80px, 10vw, 140px) 0;
+}
+
+.disciplines .section-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 5vw, 80px);
+    align-items: end;
+    margin-bottom: clamp(48px, 6vw, 80px);
+}
+
+.disciplines .eyebrow {
+    color: rgba(10, 22, 40, 0.5);
+    display: block;
+    margin-bottom: 16px;
+}
+
+.disciplines .eyebrow .num {
+    color: #7a6a4a;
+}
+
+.disciplines h2.display {
+    font-size: var(--t-h2);
+    color: var(--ink);
+    margin: 0;
+}
+
+.disciplines .lede {
+    color: rgba(10, 22, 40, 0.65);
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.disc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--paper-2);
+}
+
+.disc {
+    background: var(--paper);
+    padding: clamp(28px, 3vw, 44px);
+}
+
+.disc h4 {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 1.8vw, 24px);
+    font-weight: 300;
+    color: var(--ink);
+    margin: 0 0 20px;
+    line-height: 1.3;
+}
+
+.disc h4 small {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: #7a6a4a;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.disc ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.disc ul li {
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(10, 22, 40, 0.6);
+    padding-left: 18px;
+    position: relative;
+}
+
+.disc ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: #7a6a4a;
+}
+
+/* ── CTA — dark background ── */
+
+.method-cta {
+    background: var(--ink);
+    color: var(--bone);
+    padding: clamp(80px, 10vw, 140px) 0;
+    text-align: center;
+}
+
+.method-cta .eyebrow {
+    color: var(--bone-mute);
+    display: block;
+    margin-bottom: 24px;
+}
+
+.method-cta h2.display {
+    font-size: var(--t-h2);
+    color: var(--bone);
+    margin: 0 0 20px;
+}
+
+.method-cta .cta-sub {
+    color: var(--bone-dim);
+    font-size: clamp(14px, 1.2vw, 16px);
+    max-width: 48ch;
+    margin: 0 auto 40px;
+    line-height: 1.65;
+}
+
+.method-cta .cta-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 1080px) {
+    .phase-row {
+        grid-template-columns: 72px 1fr 2fr;
+    }
+}
+
+@media (max-width: 880px) {
+    .method-hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .method-hero .lede {
+        padding-top: 0;
+    }
+
+    .phase-row {
+        grid-template-columns: 56px 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .phase-body {
+        grid-column: 2 / -1;
+    }
+
+    .disciplines .section-header {
+        grid-template-columns: 1fr;
+        align-items: start;
+    }
+
+    .disc-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .phase-row {
+        grid-template-columns: 1fr;
+    }
+
+    .phase-num {
+        font-size: clamp(40px, 10vw, 56px);
+    }
+
+    .phase-body {
+        grid-column: 1;
+    }
+}
