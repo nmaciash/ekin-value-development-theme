@@ -1,61 +1,5 @@
 <?php
 
-/***************************/
-//        ESTILOS
-/***************************/
-function theme_enqueue_styles() {
-    // Bootstrap CSS
-    wp_enqueue_style(
-        'bootstrap-css', 
-        get_template_directory_uri() . '/assets/css/bootstrap.min.css', 
-        array(), 
-        '5.3.5', 
-        'all'
-    );
-
-    // Estilos del tema
-    wp_enqueue_style(
-        'theme-style', 
-        get_stylesheet_uri(), 
-        array('bootstrap-css'), 
-        '1.0', 
-        'all'
-    );
-}
-add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
-
-
-
-/***************************/
-//        SCRIPTS
-/***************************/
-function theme_enqueue_scripts() {
-    // Bootstrap Bundle JS
-    wp_enqueue_script(
-        'bootstrap-js',
-        get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js',
-        array('jquery'),
-        '5.3.5', 
-        true
-    );
-
-    // Custom JS (Tu script principal)
-    wp_enqueue_script(
-        'custom-js', // Este es el handle de tu script
-        get_template_directory_uri() . '/assets/js/scripts.js',
-        array('jquery', 'bootstrap-js'),
-        '1.0',
-        true
-    );
-    
-    // Pasamos las variables de PHP a tu script 'custom-js' AQUÍ MISMO.
-    wp_localize_script('custom-js', 'gph_ajax_object', [
-        'ajax_url' => admin_url('admin-ajax.php'),
-        'nonce'    => wp_create_nonce('gph_ajax_nonce')
-    ]);
-}
-add_action('wp_enqueue_scripts', 'theme_enqueue_scripts'); // Solo se necesita UNA llamada a la acción.
-
 
 /**************************************************/
 //   MANEJADOR DE LA LLAMADA AJAX
@@ -94,37 +38,6 @@ function gph_cargar_contenido_callback() {
 
 
 
-/*********************************************************/
-//    Registrar Estilos y scripts para SLICK SLIDER
-/*********************************************************/
-
-
-function enqueue_slick_slider() {
-    // Registrar y encolar Slick Slider CSS
-    wp_enqueue_style(
-        'slick-css',
-        'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css',
-        array(), // Sin dependencias
-        '1.8.1' // Versión de Slick Slider
-    );
-
-    wp_enqueue_style(
-        'slick-theme-css',
-        'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css',
-        array('slick-css'), // Depende de slick-css
-        '1.8.1' // Versión de Slick Slider
-    );
-
-    // Registrar y encolar Slick Slider JS
-    wp_enqueue_script(
-        'slick-js',
-        'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js',
-        array('jquery'), // Depende de jQuery
-        '1.8.1', // Versión de Slick Slider
-        true // Cargar en el footer
-    );
-}
-add_action('wp_enqueue_scripts', 'enqueue_slick_slider');
 
 
 
@@ -266,19 +179,6 @@ register_sidebar (
 
 
 
-/***************************/
-//        FUENTES
-/***************************/
-
-
-add_action('wp_enqueue_scripts', function () {
-	wp_enqueue_style('century-gothic', get_template_directory_uri() . '/assets/fonts/century-gothic/stylesheet.css');
-    wp_enqueue_style('poppins', get_template_directory_uri() . '/assets/fonts/poppins/stylesheet.css');
-    wp_enqueue_style('montserrat', get_template_directory_uri() . '/assets/fonts/montserrat/stylesheet.css');
-    wp_enqueue_style('roboto', get_template_directory_uri() . '/assets/fonts/roboto/stylesheet.css');
-
-    wp_enqueue_style('material-icons', '//fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0');
-	});
 
 
 
@@ -483,3 +383,12 @@ function mi_tema_customize_register($wp_customize) {
     }
 }
 add_action('customize_register', 'mi_tema_customize_register');
+
+
+/***************************/
+//   MÓDULOS /inc/
+/***************************/
+require_once get_template_directory() . '/inc/env-loader.php';
+require_once get_template_directory() . '/inc/acf-loader.php';
+require_once get_template_directory() . '/inc/enqueue.php';
+require_once get_template_directory() . '/inc/elementor-cleaner.php';

@@ -444,7 +444,7 @@ htaccess
 **/img/**
 **/videos/**
 **/video/**
-
+**/assets/fonts/**
 
 All plugins
 Note: If you wish to whitelist plugins,

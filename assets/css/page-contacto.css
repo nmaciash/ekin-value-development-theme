@@ -1,0 +1,237 @@
+/* =========================================
+   NMNeoSelene — Página de Contacto
+   Tokens: /draft/styles/tokens.css
+   ========================================= */
+
+:root {
+  --ink:              #0a1628;
+  --ink-2:            #0f1c30;
+  --ink-3:            #152540;
+  --ink-line:         rgba(232, 228, 220, 0.12);
+  --ink-line-strong:  rgba(232, 228, 220, 0.22);
+  --bone:             #e8e4dc;
+  --bone-dim:         rgba(232, 228, 220, 0.72);
+  --bone-mute:        rgba(232, 228, 220, 0.52);
+  --bone-faint:       rgba(232, 228, 220, 0.28);
+  --accent:           #c9a55c;
+  --accent-soft:      rgba(201, 165, 92, 0.15);
+  --accent-line:      rgba(201, 165, 92, 0.45);
+  --font-display:     "Fraunces", "Cormorant Garamond", Georgia, serif;
+  --font-sans:        "Inter Tight", "Inter", "Helvetica Neue", Arial, sans-serif;
+  --ease:             cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* ── Base de página ───────────────────────────────────── */
+
+.contact__page {
+  background: var(--ink);
+  color: var(--bone);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Hero ─────────────────────────────────────────────── */
+
+.contact-hero-section {
+  background: var(--ink);
+  padding-top: clamp(64px, 10vw, 120px);
+  padding-bottom: clamp(40px, 6vw, 80px);
+  border-bottom: 1px solid var(--ink-line);
+}
+
+.contact-hero-section .hero-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bone-mute);
+  margin-bottom: 24px;
+}
+
+.contact-hero-section .hero-eyebrow .num {
+  color: var(--accent);
+  margin-right: 0.6em;
+}
+
+.contact-hero-section .custom-hero-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-style: normal;
+  font-size: clamp(40px, 6vw, 80px);
+  letter-spacing: -0.02em;
+  line-height: 1.04;
+  color: var(--bone);
+  margin-bottom: 28px;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+}
+
+.contact-hero-section .custom-hero-title em {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 300;
+}
+
+.contact-hero-section .custom-hero-description {
+  font-family: var(--font-sans);
+  font-size: clamp(15px, 1.4vw, 18px);
+  line-height: 1.65;
+  color: var(--bone-dim);
+  max-width: 52ch;
+  margin-inline: auto;
+  margin-bottom: 16px;
+}
+
+.contact-hero-section strong {
+  font-weight: 500;
+  color: var(--bone);
+}
+
+/* ── Sección formulario ───────────────────────────────── */
+
+.contact-form-section {
+  background: var(--ink-2);
+  padding-top: clamp(48px, 7vw, 96px);
+  padding-bottom: clamp(64px, 9vw, 120px);
+}
+
+.contact-form-section .form-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(26px, 2.8vw, 38px);
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  color: var(--bone);
+  margin-bottom: 40px;
+}
+
+/* ── Campos del formulario ────────────────────────────── */
+
+.contact-form-section .nmh-form-group {
+  margin-bottom: 24px;
+}
+
+.contact-form-section label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--bone-mute);
+  margin-bottom: 8px;
+}
+
+.contact-form-section input[type="text"],
+.contact-form-section input[type="email"],
+.contact-form-section input[type="tel"],
+.contact-form-section textarea {
+  width: 100%;
+  background: var(--ink-3);
+  border: 1px solid var(--ink-line-strong);
+  border-radius: 4px;
+  color: var(--bone);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  padding: 14px 18px;
+  outline: none;
+  transition: border-color 0.3s var(--ease), background 0.3s var(--ease);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.contact-form-section input[type="text"]:focus,
+.contact-form-section input[type="email"]:focus,
+.contact-form-section input[type="tel"]:focus,
+.contact-form-section textarea:focus {
+  border-color: var(--accent-line);
+  background: var(--ink-2);
+}
+
+.contact-form-section input::placeholder,
+.contact-form-section textarea::placeholder {
+  color: var(--bone-mute);
+}
+
+.contact-form-section textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+/* ── Botón submit ─────────────────────────────────────── */
+
+.contact-form-section .nmh-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  height: 52px;
+  padding: 0 32px;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 0.35s var(--ease), color 0.35s var(--ease), border-color 0.35s var(--ease);
+  margin-top: 8px;
+}
+
+.contact-form-section .nmh-submit:hover {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ── Divisor entre secciones ──────────────────────────── */
+
+.contact-form-section::before {
+  content: "";
+  display: block;
+  height: 1px;
+  background: var(--ink-line);
+  margin-bottom: 0;
+}
+
+/* ── Ocultar sección listings (no aplica en contacto) ─── */
+
+.contact__page .listings-section {
+  display: none;
+}
+
+/* ── Responsive 768px ─────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .contact-hero-section {
+    text-align: left;
+  }
+
+  .contact-hero-section .custom-hero-title {
+    font-size: clamp(36px, 9vw, 56px);
+  }
+
+  .contact-hero-section .custom-hero-description {
+    margin-inline: 0;
+  }
+
+  .contact-form-section .form-title {
+    font-size: clamp(24px, 6vw, 32px);
+  }
+}
+
+/* ── Responsive 480px ─────────────────────────────────── */
+
+@media (max-width: 480px) {
+  .contact-hero-section .custom-hero-title {
+    font-size: clamp(32px, 10vw, 46px);
+  }
+
+  .contact-form-section .nmh-submit {
+    width: 100%;
+    justify-content: center;
+  }
+}

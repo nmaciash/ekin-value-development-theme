@@ -108,7 +108,7 @@ html {
 /* Desactivar estilos por defecto en etiquetas */
 
 h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em, li {
-    font-size: 1rem;
+    /* font-size: 1rem; */
     font-weight: 200;
     font-style: inherit;
     text-decoration: none;
@@ -134,7 +134,7 @@ h3 {
 }
 
 p, strong, li, span {
-    font-size: 1.4rem;
+    /* font-size: 1.4rem; */
     line-height: 2.1rem;
     font-weight: 300;
 }
@@ -285,7 +285,7 @@ body {
     text-transform: uppercase;
     font-size: 1.2rem;
     letter-spacing: 0.2rem;
-    background-color: grey;
+    /* background-color: grey; */
     border: none;
 }
 .py-2 {
@@ -3739,7 +3739,7 @@ nav {
     }
 
     .hero h1 {
-        font-size: 3rem;
+        font-size: 6rem;
         margin-bottom: 20px;
     }
 
@@ -4608,7 +4608,7 @@ img.kit-digital-logo {
      
 
     p, strong, li, span {
-        font-size: 1.5rem;        
+        /* font-size: 1.5rem;         */
     }
 
     .w-sm-80 {

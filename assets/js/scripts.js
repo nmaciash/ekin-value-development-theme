@@ -24,11 +24,11 @@ $(document).ready(function() {
      var $initial_height = $('.logo').height(); 
      var $initial_height_scrolled = $initial_height - (parseInt($initial_height) * 0.10);
 
-        if ($(window).width() >= 960) {
+        if ($(window).width() >= 960 && $(".nm-nav").length) {
 
             // alert(initial_height);
 
-                $(window).on("scroll touchmove", function() {            
+                $(window).on("scroll touchmove", function() {
 
 
                     if ($(document).scrollTop() != $(".nm-nav").position().top) {
@@ -58,7 +58,8 @@ $(document).ready(function() {
 
     // Menú Hamburguesa
 
-    document.querySelector(".hamburger-btn").addEventListener('click', animateBars);
+    var hambtn = document.querySelector(".hamburger-btn");
+    if (hambtn) { hambtn.addEventListener('click', animateBars); }
 
     var line1__bars = document.querySelector('.line1__bars-menu');
     var line2__bars = document.querySelector('.line2__bars-menu');
