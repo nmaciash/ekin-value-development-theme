@@ -174,3 +174,21 @@ add_action( 'wp_enqueue_scripts', function () {
     );
 
 } );
+
+
+// ── Páginas legales ────────────────────────────────────────────────────────
+
+add_action( 'wp_enqueue_scripts', function () {
+
+    if ( ! is_page_template( 'page-templates/page-legal.php' ) ) {
+        return;
+    }
+
+    wp_enqueue_style(
+        'nmh-legal',
+        get_template_directory_uri() . '/assets/css/page-legal.css',
+        array( 'nmh-site' ),
+        filemtime( get_template_directory() . '/assets/css/page-legal.css' )
+    );
+
+} );

@@ -63,7 +63,7 @@
                 <a href="#">Legal Notice</a>
                 <a href="#">Privacy Policy</a>
                 <a href="#">Cookies</a>
-                <a href="#">Accessibility</a>
+                <a href="https://ekinvaluedevelopment.com/accessibility">Accessibility</a>
             </div>
         </div>
 

@@ -1,5 +1,28 @@
 # PROGRESS LOG
 
+## 2026-05-09 — Sesión 13: Plantilla Legal ✅
+
+### Completado
+- Creado `page-templates/page-legal.php` (Template Name: Legal)
+  - Eyebrow "Legal" + h1 con `the_title()` + fecha de última modificación en mono
+  - `the_content()` del editor WP sin envolver en ACF
+- Creado `assets/css/page-legal.css`
+  - Contenido limitado a 720px de ancho (óptimo para lectura legal)
+  - Padding superior `clamp(80px, 10vw, 140px)`, espacio inferior `clamp(48px, 7vw, 96px)`
+  - Separador `border-top` antes de cada `h2` para estructurar secciones largas
+  - `line-height: 1.75` en párrafos, tipografía con tokens del tema
+- Añadido enqueue condicional en `inc/enqueue.php` (bloque `nmh-legal`)
+
+### Uso
+En WP Admin: Editar página legal → Atributos de página → Plantilla → Legal
+
+### Archivos modificados
+- `page-templates/page-legal.php` — creado
+- `assets/css/page-legal.css` — creado
+- `inc/enqueue.php` — bloque nmh-legal añadido al final
+
+---
+
 ## 2026-05-09 — Sesión 12: Sección full-bleed imagen entre 02 y 03 ✅
 
 ### Completado

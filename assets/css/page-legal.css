@@ -1,0 +1,120 @@
+/* =========================================================
+   EKIN — Legal page template
+   ========================================================= */
+
+/* ── Layout ──────────────────────────────────────────────── */
+.legal-page {
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 60vh;
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+.legal-header {
+  padding-block: clamp(80px, 10vw, 140px) clamp(40px, 5vw, 64px);
+  border-bottom: 1px solid var(--ink-line-strong);
+}
+
+.legal-header .eyebrow {
+  display: block;
+  margin-bottom: 1.25rem;
+  color: var(--accent);
+}
+
+.legal-title {
+  font-size: clamp(36px, 5vw, 72px);
+  color: var(--ink);
+  margin: 0 0 1.5rem;
+  max-width: 18ch;
+}
+
+.legal-meta {
+  color: var(--bone-mute);
+  font-size: 11px;
+  margin: 0;
+}
+
+/* ── Body ────────────────────────────────────────────────── */
+.legal-body {
+  padding-block: clamp(48px, 7vw, 96px);
+}
+
+.legal-content {
+  max-width: 720px;
+}
+
+/* ── Typography dentro del contenido ────────────────────── */
+.legal-content p {
+  font-family: var(--font-sans);
+  font-size: var(--t-body);
+  line-height: 1.75;
+  color: var(--ink);
+  margin: 0 0 1.25em;
+}
+
+.legal-content h2 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(24px, 2.4vw, 32px);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 2.5em 0 0.75em;
+  padding-top: 0.5em;
+  border-top: 1px solid var(--ink-line-strong);
+}
+
+.legal-content h3 {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: var(--t-h4);
+  color: var(--ink);
+  margin: 2em 0 0.5em;
+}
+
+.legal-content h2:first-child,
+.legal-content h3:first-child {
+  margin-top: 0;
+}
+
+.legal-content ul,
+.legal-content ol {
+  font-family: var(--font-sans);
+  font-size: var(--t-body);
+  line-height: 1.75;
+  color: var(--ink);
+  margin: 0 0 1.25em;
+  padding-left: 1.5em;
+}
+
+.legal-content li {
+  margin-bottom: 0.4em;
+}
+
+.legal-content a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-line);
+  text-underline-offset: 3px;
+  transition: color 0.2s var(--ease);
+}
+
+.legal-content a:hover {
+  color: var(--ink);
+  text-decoration-color: var(--ink-line-strong);
+}
+
+.legal-content strong {
+  font-weight: 600;
+}
+
+.legal-content em {
+  font-style: italic;
+  color: var(--bone-dim);
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .legal-content {
+    max-width: 100%;
+  }
+}

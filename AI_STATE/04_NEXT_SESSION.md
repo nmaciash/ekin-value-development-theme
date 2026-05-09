@@ -21,14 +21,14 @@ Claude solo trabaja sobre archivos locales. No preguntar por subidas, no propone
 
 ## Primer paso exacto
 
-**Confirmar imagen en producción** (usuario sube `assets/images/ekin-hd.png` por SFTP y verifica que la sección aparece entre 02 y 03).
-
-Si la imagen está OK → arrancar **Fase 6: Investor page**:
+**Arrancar Fase 6: Investor page**:
 - Leer `/draft/investor.html`, extraer secciones y crear:
   - `page-templates/page-investor.php`
   - `assets/css/page-investor.css`
   - Enqueue condicional en `inc/enqueue.php`
 - El usuario crea la página en WP Admin y asigna el template.
+
+(La plantilla Legal está lista. El usuario puede asignarla a Política de Privacidad, Aviso Legal, Cookies, etc. directamente desde WP Admin.)
 
 ---
 
