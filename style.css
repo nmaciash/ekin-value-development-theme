@@ -3665,62 +3665,13 @@ nav {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
    
 /* **************************************** */
 /*                 OWNERS                   */
 /* **************************************** */
 
-
-
-
-
     /* Contenedor principal */
     .hero {
-        background-image: url('./assets/images/owner02.jpg'); /* Imagen de fondo */
         background-size: cover;
         background-position: center;
         height: 100vh;

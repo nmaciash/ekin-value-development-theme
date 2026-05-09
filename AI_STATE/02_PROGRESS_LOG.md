@@ -1,5 +1,22 @@
 # PROGRESS LOG
 
+## 2026-05-09 — Sesión 12: Sección full-bleed imagen entre 02 y 03 ✅
+
+### Completado
+- Añadida sección `section-fullbleed-img` en `front-page.php` entre 02 The Approach y 03 Capabilities
+- Imagen `assets/images/ekin-hd.png` con `loading="lazy"` + `decoding="async"` + dimensiones declaradas (1920×1080)
+- Sección con `aria-hidden="true"` (imagen decorativa)
+- CSS añadido en `assets/css/front-page.css`: bloque `section-fullbleed-img` con `width:100%`, `height:auto`, `line-height:0`
+
+### Archivos modificados
+- `front-page.php` — nueva sección insertada entre líneas 148-150
+- `assets/css/front-page.css` — bloque `.section-fullbleed-img` añadido antes del bloque Pillars
+
+### Pendiente del usuario
+- Subir `assets/images/ekin-hd.png` al servidor vía SFTP
+
+---
+
 ## 2026-05-08 — Sesión 11: Fase 5 Method page ✅ + Contact traducción ✅
 
 ### Completado

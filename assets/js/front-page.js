@@ -1,6 +1,18 @@
 (function () {
     'use strict';
 
+    var heroVideo = document.querySelector('.hero-video');
+    if (heroVideo) {
+        heroVideo.addEventListener('canplay', function handler() {
+            heroVideo.classList.add('is-ready');
+            heroVideo.removeEventListener('canplay', handler);
+        });
+        // Fallback: si el vídeo ya estaba cacheado y canplay no vuelve a disparar
+        if (heroVideo.readyState >= 3) {
+            heroVideo.classList.add('is-ready');
+        }
+    }
+
     var rotator = document.getElementById('heroRotator');
     if (!rotator) return;
 

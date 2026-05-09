@@ -147,6 +147,18 @@ $ed_img = nmh_get_acf_field( 'home_somos_image', get_template_directory_uri() . 
         </div>
     </section>
 
+    <!-- ── FULL-BLEED IMAGE ──────────────────────────────── -->
+    <section class="section-fullbleed-img" aria-hidden="true">
+        <img
+            src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/ekin-hd.png"
+            alt=""
+            loading="lazy"
+            decoding="async"
+            width="1920"
+            height="1080"
+        >
+    </section>
+
     <!-- ── PILLARS / CAPABILITIES ────────────────────────── -->
     <section class="section section-paper section-pillars">
         <div class="shell">
