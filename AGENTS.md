@@ -213,6 +213,40 @@ Completado en sesión 2026-05-07.
 
 ---
 
+## Home page — ACF constraints (front-page.php)
+
+El `front-page.php` es completamente editable desde WP Admin salvo las siguientes excepciones:
+
+| Elemento hardcoded | Razón |
+|---|---|
+| **Hero rotations** (3 slides con `<span class="line">` y `<em>`) | Estructura HTML acoplada a animaciones JS. El JS controla qué `.rot` es activo. No es texto plano. Requiere desarrollador. |
+| **Intro statement** "From acquisition… to exit." | Contiene `<span class="dim">` y `<em>` integrados en posiciones fijas. Cambiar el texto rompe la maquetación sin tocar el HTML. |
+| **Marquee de ciudades** | Contenido decorativo duplicado para la animación CSS de scroll infinito. No es contenido editorial. |
+| **Full-bleed image** `ekin-hd.png` | Asset fijo de branding. Cambiar requiere subir nuevo asset y editar el template. |
+| **Decoradores tipográficos** `+`, `€`, `M` en stats | Las cifras son editables (`home_stat*_num`). Los símbolos son fijos por diseño. |
+| **URLs de navegación** `/method/`, `/contacto/` | Rutas internas WP hardcoded con `home_url()`. Cambiarlas requiere que el slug de la página coincida. |
+
+### Mapa de tabs ACF → secciones de front-page.php
+
+| Tab en WP Admin | Sección en página | Eyebrow |
+|---|---|---|
+| Hero | Hero con vídeo | 01 |
+| Approach | Sección intro oscura | 02 |
+| Capabilities | Pilares / servicios | 03 |
+| Method Teaser | Teaser de las 5 fases | 04 |
+| Editorial | "Where we operate" | 05 |
+| Why Investors | Cards de razones | 06 |
+| CTA | Sección de contacto final | 07 |
+
+### Cómo hacer editable un elemento actualmente hardcoded
+
+1. Definir el campo en `inc/acf-fields.php` dentro de `group_home`, con `default_value` igual al contenido actual.
+2. Añadir la variable con `nmh_get_acf_field()` al bloque de variables inicial de `front-page.php`.
+3. Sustituir el texto hardcoded por `<?php echo esc_html( $var ); ?>` (o `nl2br( esc_html( $var ) )` si admite saltos de línea).
+4. Para elementos con HTML mixto (spans, em, br), evaluar si conviene `wp_kses()` o dividir el campo en partes.
+
+---
+
 ## Pre-deploy checklist
 
 ```bash

@@ -1,5 +1,80 @@
 # PROGRESS LOG
 
+## 2026-05-10 — Sesión 15: Corrección errores Sesión 14 (Hero ACF + h2 em + footer menu) ✅
+
+### Completado
+
+**Hero rotations — campos ACF creados (inc/acf-fields.php + front-page.php)**
+- 6 campos nuevos en tab Hero: `home_hero_rot1/2/3_text` (textarea, una línea = un `<span class="line">`) + `home_hero_rot1/2/3_em` (texto plano, palabras separadas por `|` que se envuelven en `<em>` por coincidencia exacta)
+- Helper `nmh_hero_rot_lines($text, $em_raw)` en `front-page.php`: divide por `\n`, aplica `<em>`, output seguro (esc_html + str_replace)
+- Los 3 bloques `.rot` del template usan el helper en vez de HTML hardcoded
+- Campos de botón (btn1/btn2) movidos al final del tab Hero, añadidos campos URL `home_hero_btn1_url` / `home_hero_btn2_url` con fallbacks `home_url('/method/')` y `home_url('/contacto/')`
+
+**h2 display — `<em>` e italic restaurados (5 secciones)**
+- Helper `nmh_h2_display($text, $em_raw)` en `front-page.php`: misma lógica que el de rotaciones pero con `nl2br()` al final para soportar saltos de línea
+- Los 5 campos h2 (Capabilities, Method Teaser, Editorial, Why Investors, CTA) pasaron de `type: text` a `type: textarea` con `rows: 2`
+- Añadidos campos `_em` compañeros para cada uno con los valores por defecto del diseño
+- Template: los 5 `esc_html()` reemplazados por `nmh_h2_display()`
+
+**Renombrado de labels ACF**
+- Todas las instancias de "Palabras con acento (em)" → "Palabras con diseño destacado" en `inc/acf-fields.php`
+
+**Footer nav menu (assets/css/site.css)**
+- Añadidas reglas explícitas sobre `.footer-grid .menu li` y `.footer-grid .menu li a` para igualar el diseño del menú WP al de las listas hardcoded (Disciplines, Office)
+- Reseteados: font-family, font-weight, font-size (14px), letter-spacing, text-transform, padding, display, border-radius
+- `.footer-grid .menu li a::after { display: none }` elimina el subrayado de ítem activo del header
+
+### Archivos modificados
+- `inc/acf-fields.php`
+- `front-page.php`
+- `assets/css/site.css`
+
+### Bugs cerrados
+- 🔴 Hero rotations sin ACF → **RESUELTO**
+- 🟠 h2 display sin `<em>` en 5 secciones → **RESUELTO**
+
+---
+
+## 2026-05-10 — Sesión 14: Alineación ACF meta boxes con diseño actual del Home ⚠️ INCOMPLETO
+
+### Contexto
+Los meta boxes del Home (group_home en inc/acf-fields.php) seguían el diseño ANTERIOR al rediseño de la Fase 4.
+Mostraban tabs obsoletos en el admin (Propiedades, Equipo, Vídeo costa…) y no cubrían ninguna de las secciones nuevas.
+El front-page.php tenía todo el texto nuevo hardcoded sin conexión a ACF.
+
+### Completado
+- **inc/acf-fields.php** — `group_home` reescrito completamente:
+  - Eliminados 7 tabs obsoletos (Hero title/subtitle, Servicios intro, Propiedades, Imagen corporativa, Somos Servicio legacy, Vídeo costa, Equipo)
+  - Añadidos 8 tabs nuevos: Hero, Approach, Capabilities, Method Teaser, Editorial, Why Investors, CTA
+  - ~55 campos con `default_value` exacto al contenido que estaba hardcoded
+  - Mantenidos los field keys existentes que aún se usaban: `home_s1-4_title/desc`, `home_somos_p1/p2/image`
+
+- **front-page.php** — Variables y template actualizados:
+  - Bloque PHP inicial: de 10 variables a 46 llamadas `nmh_get_acf_field()`
+  - Cada sección del template usa variables en vez de texto hardcoded
+  - Fallbacks = texto actual → output visual idéntico al de antes (no hay regresión de contenido)
+  - Novedad: `tel:` en CTA construido con `preg_replace('/\s+/', '', $cta_phone)` para limpiar espacios del número
+
+- **AGENTS.md** — Añadida sección "Home page — ACF constraints" con tabla de qué queda hardcoded y por qué + mapa de tabs → secciones
+
+### Lo que QUEDA HARDCODED (decisiones documentadas en AGENTS.md)
+- Hero rotations (3 slides animados con h1): estructura HTML demasiado acoplada a JS. SIN campo ACF.
+- Intro statement "From acquisition… to exit.": contiene `<span class="dim">` en posiciones fijas.
+- Marquee de ciudades: decorativo, duplicado para animación CSS.
+- Full-bleed image ekin-hd.png: asset fijo de branding.
+- Decoradores tipográficos: `+` en stat1, `€` y `M` en stat3.
+
+### Errores/regresiones introducidos — PENDIENTES DE CORRECCIÓN (ver 05_BUGS.md)
+1. **CRÍTICO**: Hero rotations sin campos ACF — el cliente no puede editar los titulares principales.
+2. **VISUAL**: Los h2 display de 5 secciones perdieron el `<em>` italic. El diseño usa Fraunces italic dentro del heading como elemento visual clave. Afecta: Capabilities, Method Teaser, Editorial, Why Investors, CTA.
+
+### Archivos modificados
+- `inc/acf-fields.php` — group_home reescrito (resto de grupos intactos)
+- `front-page.php` — reescrito completo
+- `AGENTS.md` — sección nueva añadida al final, antes de "Pre-deploy checklist"
+
+---
+
 ## 2026-05-09 — Sesión 13: Plantilla Legal ✅
 
 ### Completado

@@ -316,6 +316,11 @@ body {
 .footer-grid li { margin-bottom: 10px; font-size: 14px; }
 .footer-grid li a { color: var(--bone-dim); text-decoration: none; }
 .footer-grid li a:hover { color: var(--accent); }
+.footer-grid .menu { list-style: none; padding: 0; margin: 0; }
+.footer-grid .menu li { margin-bottom: 10px; font-size: 14px; font-family: var(--font-sans); font-weight: 400; letter-spacing: normal; text-transform: none; }
+.footer-grid .menu li a { color: var(--bone-dim); text-decoration: none; font-size: 14px; font-family: var(--font-sans); font-weight: 400; letter-spacing: normal; text-transform: none; padding: 0; display: inline; border-radius: 0; }
+.footer-grid .menu li a:hover { color: var(--accent); }
+.footer-grid .menu li a::after { display: none; }
 
 .footer-mark {
   font-family: var(--font-display);
