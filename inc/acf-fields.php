@@ -280,6 +280,15 @@ acf_add_local_field_group( array(
             'type'          => 'text',
             'default_value' => '¿Cómo podemos ayudarte?',
         ),
+        array(
+            'key'          => 'field_con_form_shortcode',
+            'label'        => 'Shortcode del formulario',
+            'name'         => 'con_form_shortcode',
+            'type'         => 'text',
+            'instructions' => 'Pega aquí el shortcode del plugin de formulario, ej: [nmh-contact-forms]. Si está vacío, se muestra el formulario HTML de reserva.',
+            'default_value' => '',
+            'placeholder'  => '[nmh-contact-forms]',
+        ),
 
     ),
     'location' => array( array( array(
@@ -292,7 +301,81 @@ acf_add_local_field_group( array(
 
 
 // ═══════════════════════════════════════════════════════════════
-//  4. PROPIETARIOS
+//  4. METHOD
+// ═══════════════════════════════════════════════════════════════
+acf_add_local_field_group( array(
+    'key'   => 'group_method',
+    'title' => 'Contenido · Method',
+    'fields' => array(
+
+        // ── TAB: Hero ──────────────────────────────────────────
+        nmh_acf_tab( 'field_met_tab_hero', 'Hero' ),
+        array( 'key' => 'field_met_hero_eyebrow',  'label' => 'Eyebrow (texto superior)',         'name' => 'method_hero_eyebrow',  'type' => 'text',     'default_value' => '02 The Method' ),
+        array( 'key' => 'field_met_hero_h1_pre',   'label' => 'H1 · Texto antes del énfasis',     'name' => 'method_hero_h1_pre',   'type' => 'text',     'default_value' => 'Invest like a' ),
+        array( 'key' => 'field_met_hero_h1_em',    'label' => 'H1 · Palabra en cursiva (em)',     'name' => 'method_hero_h1_em',    'type' => 'text',     'default_value' => 'developer.' ),
+        array( 'key' => 'field_met_hero_h1_small', 'label' => 'H1 · Subtexto (línea pequeña)',    'name' => 'method_hero_h1_small', 'type' => 'text',     'default_value' => 'Without being one.' ),
+        array( 'key' => 'field_met_hero_lede',     'label' => 'Párrafo introductorio',            'name' => 'method_hero_lede',     'type' => 'textarea', 'rows' => 4, 'default_value' => 'EKIN is a multidisciplinary consultancy that transforms complex assets into high-value investments. Five connected phases — technical insight, legal structuring, strategic execution — that bridge the gap between architectural vision and commercial viability.' ),
+
+        // ── TAB: Phases ────────────────────────────────────────
+        nmh_acf_tab( 'field_met_tab_phases', 'Phases' ),
+        array( 'key' => 'field_met_p1_title', 'label' => 'Fase 01 · Título',        'name' => 'method_p1_title', 'type' => 'textarea', 'rows' => 2, 'instructions' => 'Salto de línea = <br> visible.', 'default_value' => "Initial Consultancy\n& Research Mandate" ),
+        array( 'key' => 'field_met_p1_body',  'label' => 'Fase 01 · Párrafo',       'name' => 'method_p1_body',  'type' => 'textarea', 'rows' => 4, 'default_value' => 'We begin by aligning on the investment thesis: target geography, asset typology, ticket size, return horizon and risk envelope. The mandate is documented and becomes the filter through which every subsequent opportunity is evaluated.' ),
+        array( 'key' => 'field_met_p1_items', 'label' => 'Fase 01 · Ítems de lista','name' => 'method_p1_items', 'type' => 'textarea', 'rows' => 5, 'instructions' => 'Una línea = un ítem de lista.', 'default_value' => implode( "\n", array( 'Investor profile & thesis definition', 'Geographic and typological scoping', 'Risk & return parameters in writing', 'Target capital deployment timeline' ) ) ),
+        array( 'key' => 'field_met_p2_title', 'label' => 'Fase 02 · Título',        'name' => 'method_p2_title', 'type' => 'textarea', 'rows' => 2, 'instructions' => 'Salto de línea = <br> visible.', 'default_value' => "Research Presentation\n& Due Diligence" ),
+        array( 'key' => 'field_met_p2_body',  'label' => 'Fase 02 · Párrafo',       'name' => 'method_p2_body',  'type' => 'textarea', 'rows' => 4, 'default_value' => 'A curated shortlist with full technical, legal and commercial due diligence on each opportunity. Hidden risks are surfaced early — and translated into negotiation leverage rather than deal-breakers.' ),
+        array( 'key' => 'field_met_p2_items', 'label' => 'Fase 02 · Ítems de lista','name' => 'method_p2_items', 'type' => 'textarea', 'rows' => 5, 'instructions' => 'Una línea = un ítem de lista.', 'default_value' => implode( "\n", array( 'Urban & regulatory feasibility studies', 'Land & property valuations and appraisals', 'Technical due diligence with field reports', 'Comparative market analysis & pricing' ) ) ),
+        array( 'key' => 'field_met_p3_title', 'label' => 'Fase 03 · Título',        'name' => 'method_p3_title', 'type' => 'textarea', 'rows' => 2, 'instructions' => 'Salto de línea = <br> visible.', 'default_value' => "Negotiation\n& Asset Acquisition" ),
+        array( 'key' => 'field_met_p3_body',  'label' => 'Fase 03 · Párrafo',       'name' => 'method_p3_body',  'type' => 'textarea', 'rows' => 4, 'default_value' => 'We translate findings into renegotiated terms, structuring the cleanest entry possible — fiscal, legal and operational. Acquisition is closed with the right vehicle and the right safeguards.' ),
+        array( 'key' => 'field_met_p3_items', 'label' => 'Fase 03 · Ítems de lista','name' => 'method_p3_items', 'type' => 'textarea', 'rows' => 5, 'instructions' => 'Una línea = un ítem de lista.', 'default_value' => implode( "\n", array( 'Term-sheet drafting & counterparty negotiation', 'Acquisition vehicle structuring', 'KYC, AML and compliance verification', 'Notary signing & technical handover' ) ) ),
+        array( 'key' => 'field_met_p4_title', 'label' => 'Fase 04 · Título',        'name' => 'method_p4_title', 'type' => 'textarea', 'rows' => 2, 'instructions' => 'Salto de línea = <br> visible.', 'default_value' => "Licensing, Design\n& Planning" ),
+        array( 'key' => 'field_met_p4_body',  'label' => 'Fase 04 · Párrafo',       'name' => 'method_p4_body',  'type' => 'textarea', 'rows' => 4, 'default_value' => 'Permitting, architectural design and planning calibrated to the investment timeline — never the other way around. Building codes, accessibility and energy efficiency baked in from day one.' ),
+        array( 'key' => 'field_met_p4_items', 'label' => 'Fase 04 · Ítems de lista','name' => 'method_p4_items', 'type' => 'textarea', 'rows' => 5, 'instructions' => 'Una línea = un ítem de lista.', 'default_value' => implode( "\n", array( 'Preliminary design & architectural proposals', 'Execution projects & technical documentation', 'Building permit management & administrative procedures', 'Regulatory compliance (codes, accessibility, energy)' ) ) ),
+        array( 'key' => 'field_met_p5_title', 'label' => 'Fase 05 · Título',        'name' => 'method_p5_title', 'type' => 'textarea', 'rows' => 2, 'instructions' => 'Salto de línea = <br> visible.', 'default_value' => "Technical Execution\n& Commercialization" ),
+        array( 'key' => 'field_met_p5_body',  'label' => 'Fase 05 · Párrafo',       'name' => 'method_p5_body',  'type' => 'textarea', 'rows' => 4, 'default_value' => 'Site supervision and quality control walk hand-in-hand with the launch of a coordinated commercial plan. From first stone to last signature, the asset is managed as a single integrated product.' ),
+        array( 'key' => 'field_met_p5_items', 'label' => 'Fase 05 · Ítems de lista','name' => 'method_p5_items', 'type' => 'textarea', 'rows' => 5, 'instructions' => 'Una línea = un ítem de lista.', 'default_value' => implode( "\n", array( 'Project management & site supervision', 'Health, safety & quality coordination', 'Commercial branding & sales toolkit production', 'Channel activation & lead conversion' ) ) ),
+
+        // ── TAB: Disciplines ───────────────────────────────────
+        nmh_acf_tab( 'field_met_tab_disc', 'Disciplines' ),
+        array( 'key' => 'field_met_disc_eyebrow', 'label' => 'Eyebrow',                              'name' => 'method_disc_eyebrow', 'type' => 'text',     'default_value' => 'Disciplines' ),
+        array( 'key' => 'field_met_disc_h2',      'label' => 'Título de sección (H2)',               'name' => 'method_disc_h2',     'type' => 'textarea', 'rows' => 2, 'default_value' => "Your 360° architectural\n& business partner." ),
+        array( 'key' => 'field_met_disc_h2_em',   'label' => 'H2 · Palabras con diseño destacado',  'name' => 'method_disc_h2_em',  'type' => 'text',     'default_value' => '360°', 'instructions' => 'Separadas por |. Coincidencia exacta con el texto de arriba.' ),
+        array( 'key' => 'field_met_disc_intro',   'label' => 'Párrafo introductorio',               'name' => 'method_disc_intro',  'type' => 'textarea', 'rows' => 3, 'default_value' => 'One firm, four practices. We bridge architectural vision and commercial viability with data-driven analysis and execution designed for high-stakes decision-making.' ),
+        array( 'key' => 'field_met_d1_tag',   'label' => 'Disciplina 01 · Tag',    'name' => 'method_d1_tag',   'type' => 'text',     'default_value' => '01 · Consultancy' ),
+        array( 'key' => 'field_met_d1_title', 'label' => 'Disciplina 01 · Título', 'name' => 'method_d1_title', 'type' => 'text',     'default_value' => 'Feasibility & Strategy' ),
+        array( 'key' => 'field_met_d1_items', 'label' => 'Disciplina 01 · Ítems', 'name' => 'method_d1_items', 'type' => 'textarea', 'rows' => 7, 'instructions' => 'Una línea = un ítem de lista.', 'default_value' => implode( "\n", array( 'Urban, legal and technical feasibility studies', 'Product and typology analysis tailored to target markets', 'Technical consulting for investors and developers', 'Land and property valuations and appraisals', 'Technical due diligence support', 'Development potential and land-use optimization studies' ) ) ),
+        array( 'key' => 'field_met_d2_tag',   'label' => 'Disciplina 02 · Tag',    'name' => 'method_d2_tag',   'type' => 'text',     'default_value' => '02 · Architecture' ),
+        array( 'key' => 'field_met_d2_title', 'label' => 'Disciplina 02 · Título', 'name' => 'method_d2_title', 'type' => 'text',     'default_value' => 'Design & Planning' ),
+        array( 'key' => 'field_met_d2_items', 'label' => 'Disciplina 02 · Ítems', 'name' => 'method_d2_items', 'type' => 'textarea', 'rows' => 5, 'instructions' => 'Una línea = un ítem de lista.', 'default_value' => implode( "\n", array( 'Drafting of preliminary designs and architectural proposals', 'Development of execution projects', 'Building permit management and administrative procedures', 'Regulatory compliance (codes, accessibility, energy)' ) ) ),
+        array( 'key' => 'field_met_d3_tag',   'label' => 'Disciplina 03 · Tag',    'name' => 'method_d3_tag',   'type' => 'text',     'default_value' => '03 · Construction' ),
+        array( 'key' => 'field_met_d3_title', 'label' => 'Disciplina 03 · Título', 'name' => 'method_d3_title', 'type' => 'text',     'default_value' => 'Management & Construction' ),
+        array( 'key' => 'field_met_d3_items', 'label' => 'Disciplina 03 · Ítems', 'name' => 'method_d3_items', 'type' => 'textarea', 'rows' => 5, 'instructions' => 'Una línea = un ítem de lista.', 'default_value' => implode( "\n", array( 'Project management and site supervision', 'Health and safety coordination', 'Quality control and execution oversight', 'Certification and technical schedule supervision' ) ) ),
+        array( 'key' => 'field_met_d4_tag',   'label' => 'Disciplina 04 · Tag',    'name' => 'method_d4_tag',   'type' => 'text',     'default_value' => '04 · Closing' ),
+        array( 'key' => 'field_met_d4_title', 'label' => 'Disciplina 04 · Título', 'name' => 'method_d4_title', 'type' => 'text',     'default_value' => 'Technical & Commercial Closing' ),
+        array( 'key' => 'field_met_d4_items', 'label' => 'Disciplina 04 · Ítems', 'name' => 'method_d4_items', 'type' => 'textarea', 'rows' => 6, 'instructions' => 'Una línea = un ítem de lista.', 'default_value' => implode( "\n", array( 'Final legalizations and project close-out', 'Client handover support', 'Final state reports and "As-Built" technical documentation', 'Post-construction valuations for sale or rental', 'Comprehensive commercialization and sales support' ) ) ),
+
+        // ── TAB: CTA ───────────────────────────────────────────
+        nmh_acf_tab( 'field_met_tab_cta', 'CTA' ),
+        array( 'key' => 'field_met_cta_eyebrow',  'label' => 'Eyebrow',                            'name' => 'method_cta_eyebrow',  'type' => 'text',     'default_value' => 'Begin' ),
+        array( 'key' => 'field_met_cta_h2',       'label' => 'Título (H2)',                        'name' => 'method_cta_h2',       'type' => 'textarea', 'rows' => 2, 'default_value' => 'Bring us a thesis.' ),
+        array( 'key' => 'field_met_cta_h2_em',    'label' => 'H2 · Palabras con diseño destacado','name' => 'method_cta_h2_em',    'type' => 'text',     'default_value' => 'thesis.', 'instructions' => 'Separadas por |. Coincidencia exacta.' ),
+        array( 'key' => 'field_met_cta_sub',      'label' => 'Subtexto',                          'name' => 'method_cta_sub',      'type' => 'textarea', 'rows' => 2, 'default_value' => 'We respond with a structured analysis within five working days — no obligation.' ),
+        array( 'key' => 'field_met_cta_btn1',     'label' => 'Botón principal · Texto',           'name' => 'method_cta_btn1',     'type' => 'text',     'default_value' => 'Start a Conversation' ),
+        array( 'key' => 'field_met_cta_btn1_url', 'label' => 'Botón principal · URL',             'name' => 'method_cta_btn1_url', 'type' => 'url',      'default_value' => '', 'instructions' => 'Vacío = URL automática de la página Contact.' ),
+        array( 'key' => 'field_met_cta_btn2',     'label' => 'Botón secundario · Texto',          'name' => 'method_cta_btn2',     'type' => 'text',     'default_value' => 'Investor view' ),
+        array( 'key' => 'field_met_cta_btn2_url', 'label' => 'Botón secundario · URL',            'name' => 'method_cta_btn2_url', 'type' => 'url',      'default_value' => '', 'instructions' => 'Vacío = URL automática de la página Investor.' ),
+
+    ),
+    'location' => array( array( array(
+        'param'    => 'page_template',
+        'operator' => '==',
+        'value'    => 'page-templates/page-method.php',
+    ) ) ),
+    'menu_order' => 0,
+) );
+
+
+// ═══════════════════════════════════════════════════════════════
+//  5. PROPIETARIOS
 // ═══════════════════════════════════════════════════════════════
 acf_add_local_field_group( array(
     'key'   => 'group_propietarios',

@@ -1,5 +1,41 @@
 # PROGRESS LOG
 
+## 2026-05-10 — Sesión 16: ACF completo para Method + shortcode en Contacto ✅
+
+### Completado
+
+**Auditoría de inicio de sesión**
+- Producción confirmada correcta (Home + todas las páginas subidas)
+- Tabs del Home revisados: todos correctos
+
+**group_method reescrito completo (inc/acf-fields.php)**
+- Primera versión tenía solo 4 campos. Corregido en sesión: ahora cubre todo el contenido del template.
+- Tab Hero: `method_hero_eyebrow`, `method_hero_h1_pre`, `method_hero_h1_em`, `method_hero_h1_small`, `method_hero_lede`
+- Tab Phases: 5 fases × 3 campos cada una — `method_p{1-5}_title` (textarea, salto de línea = `<br>`), `method_p{1-5}_body`, `method_p{1-5}_items` (textarea, una línea = un ítem de lista)
+- Tab Disciplines: `method_disc_eyebrow`, `method_disc_h2` + `_em`, `method_disc_intro`, 4 disciplinas × 3 campos — `method_d{1-4}_tag`, `method_d{1-4}_title`, `method_d{1-4}_items`
+- Tab CTA: `method_cta_eyebrow`, `method_cta_h2` + `_em`, `method_cta_sub`, `method_cta_btn1` + `_url`, `method_cta_btn2` + `_url`
+
+**page-method.php reescrito completo**
+- Helpers locales: `nmh_met_h2($text, $em_raw)` para H2 con cursiva; `nmh_met_items($raw)` para convertir textarea en array de `<li>`
+- Fases y disciplines renderizadas con `foreach` en vez de HTML repetido × 5
+- Todos los textos via `nmh_get_acf_field()` con fallbacks exactos al contenido original
+- URLs de botones CTA: campo ACF con fallback automático a `get_permalink(get_page_by_path())`
+
+**Shortcode en Contacto (inc/acf-fields.php + page-contacto.php)**
+- Añadido campo `con_form_shortcode` (text) en tab Formulario del group_contacto
+- Template: si el campo tiene valor → `do_shortcode()`, si está vacío → formulario HTML nativo como fallback
+- Uso: pegar `[nmh-contact-forms]` en el admin cuando el plugin esté instalado
+
+### Archivos modificados
+- `inc/acf-fields.php` — group_method reescrito completo + con_form_shortcode en group_contacto
+- `page-templates/page-method.php` — reescrito completo
+- `page-templates/page-contacto.php` — shortcode field + lógica do_shortcode/fallback
+
+### Decisión de sesión
+- Nosotros y Propietarios son páginas legacy no usadas en la refactorización: se excluyen de la auditoría ACF.
+
+---
+
 ## 2026-05-10 — Sesión 15: Corrección errores Sesión 14 (Hero ACF + h2 em + footer menu) ✅
 
 ### Completado

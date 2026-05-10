@@ -5,10 +5,11 @@
 
 get_header();
 
-$hero_title = nmh_get_acf_field( 'con_hero_title', 'Get in Touch' );
-$hero_desc  = nmh_get_acf_field( 'con_hero_desc',  'Write to us, call us or visit us in Marbella. We are available Monday to Friday, 9:00 to 18:00. We would love to meet you, hear your goals and help you move forward.' );
-$hero_bold  = nmh_get_acf_field( 'con_hero_bold',  'Your next chapter starts here.' );
-$form_title = nmh_get_acf_field( 'con_form_title', 'How can we help you?' );
+$hero_title      = nmh_get_acf_field( 'con_hero_title',      'Get in Touch' );
+$hero_desc       = nmh_get_acf_field( 'con_hero_desc',       'Write to us, call us or visit us in Marbella. We are available Monday to Friday, 9:00 to 18:00. We would love to meet you, hear your goals and help you move forward.' );
+$hero_bold       = nmh_get_acf_field( 'con_hero_bold',       'Your next chapter starts here.' );
+$form_title      = nmh_get_acf_field( 'con_form_title',      'How can we help you?' );
+$form_shortcode  = nmh_get_acf_field( 'con_form_shortcode',  '' );
 ?>
 
 <main class="main-content main-page-wrapper contact__page">
@@ -36,7 +37,9 @@ $form_title = nmh_get_acf_field( 'con_form_title', 'How can we help you?' );
 
                     <strong class="form-title d-block"><?php echo esc_html( $form_title ); ?></strong>
 
-                    <!-- TODO: reemplazar por <?php echo esc_html( '[nmh-contact-forms]' ); ?> cuando el plugin esté activo -->
+                    <?php if ( $form_shortcode ) : ?>
+                        <?php echo do_shortcode( $form_shortcode ); ?>
+                    <?php else : ?>
                     <form class="nmh-contact-form" method="post" novalidate>
                         <?php wp_nonce_field( 'nmh_contact_submit', 'nmh_contact_nonce' ); ?>
 
@@ -62,6 +65,7 @@ $form_title = nmh_get_acf_field( 'con_form_title', 'How can we help you?' );
 
                         <button type="submit" class="nmh-submit">Send message</button>
                     </form>
+                    <?php endif; ?>
 
                 </div>
             </div>

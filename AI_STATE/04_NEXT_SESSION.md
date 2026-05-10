@@ -8,34 +8,30 @@ Analiza el estado. Espera a que el usuario diga qué tarea atacar. No propongas 
 
 ## Primer paso exacto
 
-**Revisión tab por tab del meta box "Contenido · Home" — continuación.**
+**Subir a producción los archivos modificados en Sesión 16 y verificar.**
 
-Los errores de Sesión 14 (Hero rotations + h2 em) están resueltos. Ahora:
+Archivos a subir via SFTP:
+- `inc/acf-fields.php`
+- `page-templates/page-method.php`
+- `page-templates/page-contacto.php`
 
-1. El usuario confirma que los archivos subidos funcionan correctamente en producción.
-2. Se revisa cada tab restante del Home buscando errores o mejoras:
-   - Approach
-   - Capabilities
-   - Method Teaser
-   - Editorial
-   - Why Investors
-   - CTA
+Verificar en producción:
+1. Página Method: el meta box muestra los 4 tabs (Hero, Phases, Disciplines, CTA) con todos los campos
+2. Página Contacto: el tab Formulario muestra el campo Shortcode del formulario
 
-3. Cuando el Home esté validado, se audita **página por página** el resto del sitio:
-   - El usuario ha detectado que al menos una página no tiene campos ACF — identificar cuál y añadirlos.
-   - Páginas a revisar: Nosotros, Propietarios, Contacto, Method, Legal.
+Cuando producción esté confirmada, continuar con:
+- Fase 6: Investor page
+- Fase 7: Newsletter page
+- Fase 8: Unificación tipográfica en páginas legacy
 
 ---
 
 ## Bugs abiertos (ver 05_BUGS.md para detalle)
 
 - ⚠️ 2 inline styles en `front-page.php` → mover a `front-page.css`
-- ⚠️ Páginas legacy con header fijo: verificar `padding-top` suficiente en cada página
+- ⚠️ Páginas legacy con header fijo: verificar `padding-top` suficiente
 - ⚠️ Nav vacío si no hay menú asignado en WP admin
-- ⚠️ Plugin NMH Contact Forms: instalar y reactivar shortcode en `page-contacto.php`
+- ⚠️ Plugin NMH Contact Forms: pendiente instalación — cuando esté listo, pegar `[nmh-contact-forms]` en el campo ACF de Contacto
 
-## Fases pendientes (después de auditoría)
-
-- Fase 6: Investor page
-- Fase 7: Newsletter page
-- Fase 8: Unificación tipográfica en páginas legacy
+## Páginas excluidas de auditoría ACF
+- Nosotros y Propietarios: páginas legacy no usadas en la refactorización actual
