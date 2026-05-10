@@ -1,5 +1,39 @@
 # PROGRESS LOG
 
+## 2026-05-10 — Sesión 17: Auditoría accesibilidad WCAG ✅
+
+### Completado
+
+**Contraste (WCAG AA) — site.css**
+- `.section-paper .eyebrow`: opacidad 0.55 → 0.65 (~3.6:1 → ~4.9:1 sobre --paper)
+- `.section-paper .display em`: override `color: #7a5c1e` (oro oscuro, ~5:1) — resuelve `--accent` #c9a55c que daba 1.78:1
+- `.section-paper .pillar-num`: override `rgba(10,22,40,0.65)` — mismo problema con --accent en .pillar-num 12px
+- `.btn.btn-primary { color: #0a1628 }`: especificidad doble clase (0,2,0) evita que validadores lean `--bone` de `.btn` base
+- `.marquee-track`: `color: var(--bone-dim)` → `color: #a9a8a6` (equivalente sólido calculado sobre #060e1c, ~9:1)
+
+**Jerarquía de headings — front-page.php + footer.php + CSS**
+- Fases del Method en front-page.php: `h4` → `h3` (5 elementos; estaban bajo h2, salto ilegal)
+- Footer "Navigate / Disciplines / Office" en footer.php: `h5` → `h3`
+- CSS actualizado: `.phase h4` → `.phase h3` en front-page.css; `.footer-grid h5` → `.footer-grid h3` en site.css; `footer h5` → `footer h3` en style.css
+
+**Áreas táctiles ≥44px — site.css**
+- `.site-nav li a`: `display: block; padding: 10px 16px` → `display: flex; align-items: center; min-height: 44px; padding: 0 16px`
+- `.footer-contact a`: añadido `display: flex; flex-direction: column; justify-content: center; min-height: 44px`
+- `.footer-bottom a`: añadido `display: inline-flex; align-items: center; min-height: 44px; padding: 0 4px`
+
+**robots.txt (Yoast SEO) — sin cambios de código**
+- Problema: Lighthouse no podía descargar robots.txt. Causa probable: conflicto con archivo físico en servidor o permalinks no flusheados.
+- Acción del usuario: (1) flush permalinks en WP admin; (2) verificar que no existe `/robots.txt` físico en SFTP.
+
+### Archivos modificados
+- `assets/css/site.css`
+- `assets/css/front-page.css`
+- `front-page.php`
+- `footer.php`
+- `style.css`
+
+---
+
 ## 2026-05-10 — Sesión 16: ACF completo para Method + shortcode en Contacto ✅
 
 ### Completado

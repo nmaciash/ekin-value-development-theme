@@ -8,16 +8,23 @@ Analiza el estado. Espera a que el usuario diga qué tarea atacar. No propongas 
 
 ## Primer paso exacto
 
-**Subir a producción los archivos modificados en Sesión 16 y verificar.**
+**Subir a producción los archivos de Sesiones 16 y 17 y verificar.**
 
 Archivos a subir via SFTP:
-- `inc/acf-fields.php`
-- `page-templates/page-method.php`
-- `page-templates/page-contacto.php`
+- `inc/acf-fields.php` (Sesión 16)
+- `page-templates/page-method.php` (Sesión 16)
+- `page-templates/page-contacto.php` (Sesión 16)
+- `assets/css/site.css` (Sesión 17)
+- `assets/css/front-page.css` (Sesión 17)
+- `front-page.php` (Sesión 17)
+- `footer.php` (Sesión 17)
+- `style.css` (Sesión 17)
 
 Verificar en producción:
-1. Página Method: el meta box muestra los 4 tabs (Hero, Phases, Disciplines, CTA) con todos los campos
-2. Página Contacto: el tab Formulario muestra el campo Shortcode del formulario
+1. Home: contraste eyebrow/em/pillar-num correcto en sección Capabilities y Method
+2. Footer: headings Navigate/Disciplines/Office con tamaño visual correcto (eran h5, ahora h3 con mismos estilos)
+3. Nav links: área táctil correcta en móvil
+4. robots.txt: acceder a `https://ekinvaluedevelopment.com/robots.txt` — debe devolver contenido Yoast (si da 404, flush permalinks en WP admin)
 
 Cuando producción esté confirmada, continuar con:
 - Fase 6: Investor page

@@ -302,27 +302,27 @@ $cta_direct = nmh_get_acf_field( 'home_cta_direct', "info@ekinvaluedevelopment.c
             <ol class="phases" aria-label="Five phases">
                 <li class="phase">
                     <span class="phase-num">P/01</span>
-                    <h4><?php echo esc_html( $method_p1_title ); ?></h4>
+                    <h3><?php echo esc_html( $method_p1_title ); ?></h3>
                     <p><?php echo esc_html( $method_p1_body ); ?></p>
                 </li>
                 <li class="phase">
                     <span class="phase-num">P/02</span>
-                    <h4><?php echo esc_html( $method_p2_title ); ?></h4>
+                    <h3><?php echo esc_html( $method_p2_title ); ?></h3>
                     <p><?php echo esc_html( $method_p2_body ); ?></p>
                 </li>
                 <li class="phase">
                     <span class="phase-num">P/03</span>
-                    <h4><?php echo esc_html( $method_p3_title ); ?></h4>
+                    <h3><?php echo esc_html( $method_p3_title ); ?></h3>
                     <p><?php echo esc_html( $method_p3_body ); ?></p>
                 </li>
                 <li class="phase">
                     <span class="phase-num">P/04</span>
-                    <h4><?php echo esc_html( $method_p4_title ); ?></h4>
+                    <h3><?php echo esc_html( $method_p4_title ); ?></h3>
                     <p><?php echo esc_html( $method_p4_body ); ?></p>
                 </li>
                 <li class="phase">
                     <span class="phase-num">P/05</span>
-                    <h4><?php echo esc_html( $method_p5_title ); ?></h4>
+                    <h3><?php echo esc_html( $method_p5_title ); ?></h3>
                     <p><?php echo esc_html( $method_p5_body ); ?></p>
                 </li>
             </ol>

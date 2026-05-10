@@ -19,7 +19,7 @@
             </div>
 
             <div>
-                <h5>Navigate</h5>
+                <h3>Navigate</h3>
                 <?php
                 wp_nav_menu( array(
                     'theme_location' => 'footer-menu',
@@ -30,7 +30,7 @@
             </div>
 
             <div>
-                <h5>Disciplines</h5>
+                <h3>Disciplines</h3>
                 <ul>
                     <li>Consultancy &amp; Research</li>
                     <li>Project Coordination</li>
@@ -40,7 +40,7 @@
             </div>
 
             <div>
-                <h5>Office</h5>
+                <h3>Office</h3>
                 <ul>
                     <li>Marbella</li>
                     <li>Costa del Sol</li>

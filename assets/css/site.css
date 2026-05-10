@@ -122,6 +122,7 @@ body {
   border-color: var(--accent);
   color: var(--ink);
 }
+.btn.btn-primary { color: #0a1628; }
 .btn-primary:hover { background: transparent; color: var(--accent); }
 
 /* ── Header ─────────────────────────────────────────────── */
@@ -181,9 +182,11 @@ body {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--bone-dim);
-  padding: 10px 16px;
+  padding: 0 16px;
+  min-height: 44px;
   border-radius: 999px;
-  display: block;
+  display: flex;
+  align-items: center;
   position: relative;
   transition: color 0.3s var(--ease);
   text-decoration: none;
@@ -303,7 +306,7 @@ body {
   gap: 48px;
   padding-bottom: 64px;
 }
-.footer-grid h5 {
+.footer-grid h3 {
   font-family: var(--font-sans);
   font-size: 11px;
   letter-spacing: 0.22em;
@@ -341,7 +344,7 @@ body {
   margin: 0;
 }
 .footer-contact { margin-top: 22px; font-size: 14px; }
-.footer-contact a { display: block; margin-bottom: 8px; color: var(--bone-dim); text-decoration: none; }
+.footer-contact a { display: flex; flex-direction: column; justify-content: center; min-height: 44px; margin-bottom: 4px; color: var(--bone-dim); text-decoration: none; }
 .footer-contact strong { display: block; font-weight: 500; letter-spacing: 0.02em; color: var(--bone); }
 .footer-contact span { font-size: 12px; color: var(--bone-mute); }
 
@@ -355,7 +358,7 @@ body {
   flex-wrap: wrap;
   gap: 12px;
 }
-.footer-bottom a { color: var(--bone-mute); text-decoration: none; }
+.footer-bottom a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 4px; color: var(--bone-mute); text-decoration: none; }
 .footer-bottom a:hover { color: var(--accent); }
 .footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
 
@@ -375,8 +378,10 @@ body {
   position: relative;
 }
 .section-paper { background: var(--paper); color: var(--ink); }
-.section-paper .eyebrow { color: rgba(10, 22, 40, 0.55); }
+.section-paper .eyebrow { color: rgba(10, 22, 40, 0.65); }
 .section-paper .eyebrow .num { color: #7a6a4a; }
+.section-paper .display em { color: #7a5c1e; }
+.section-paper .pillar-num { color: rgba(10, 22, 40, 0.65); }
 
 .section-header {
   display: grid;
