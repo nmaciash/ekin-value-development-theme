@@ -420,3 +420,52 @@ acf_add_local_field_group( array(
     ) ) ),
     'menu_order' => 0,
 ) );
+
+
+// ═══════════════════════════════════════════════════════════════
+//  TRACK RECORD
+// ═══════════════════════════════════════════════════════════════
+acf_add_local_field_group( array(
+    'key'   => 'group_track_record',
+    'title' => 'Contenido · Track Record',
+    'fields' => array(
+
+        // ── TAB: Hero ──────────────────────────────────────────
+        nmh_acf_tab( 'field_tr_tab_hero', 'Hero' ),
+        array( 'key' => 'field_tr_hero_eyebrow', 'label' => 'Eyebrow',       'name' => 'tr_hero_eyebrow', 'type' => 'text',     'default_value' => '03 Track Record' ),
+        array( 'key' => 'field_tr_hero_h1',      'label' => 'Título H1',     'name' => 'tr_hero_h1',      'type' => 'text',     'default_value' => 'Our Track' ),
+        array( 'key' => 'field_tr_hero_sub',     'label' => 'Subtítulo',     'name' => 'tr_hero_sub',     'type' => 'text',     'default_value' => 'Some Testimonials' ),
+        array( 'key' => 'field_tr_hero_lede',    'label' => 'Texto intro',   'name' => 'tr_hero_lede',    'type' => 'textarea', 'rows' => 2, 'default_value' => 'Real outcomes, real people. A selection of cases where our method made the difference.' ),
+
+        // ── TAB: Caso 1 ────────────────────────────────────────
+        nmh_acf_tab( 'field_tr_tab_c1', 'Caso 1' ),
+        array( 'key' => 'field_tr_c1_title',   'label' => 'Título',    'name' => 'tr_c1_title',   'type' => 'text',     'default_value' => 'Beyond Due Diligence: A Masterclass in Ethical Advisory and Regulatory Strategy' ),
+        array( 'key' => 'field_tr_c1_image',   'label' => 'Imagen',    'name' => 'tr_c1_image',   'type' => 'image',    'return_format' => 'array', 'preview_size' => 'medium' ),
+        array( 'key' => 'field_tr_c1_content', 'label' => 'Testimonio','name' => 'tr_c1_content', 'type' => 'textarea', 'rows' => 12, 'default_value' => '' ),
+        array( 'key' => 'field_tr_c1_author',  'label' => 'Autor',     'name' => 'tr_c1_author',  'type' => 'text',     'default_value' => 'Sebastian H.' ),
+        array( 'key' => 'field_tr_c1_role',    'label' => 'Cargo',     'name' => 'tr_c1_role',    'type' => 'text',     'default_value' => 'CEO, German Engineering Firm' ),
+
+        // ── TAB: Caso 2 ────────────────────────────────────────
+        nmh_acf_tab( 'field_tr_tab_c2', 'Caso 2' ),
+        array( 'key' => 'field_tr_c2_title',   'label' => 'Título',    'name' => 'tr_c2_title',   'type' => 'text',     'default_value' => 'The local embassador. The importance of a local partner for an Expat investor.' ),
+        array( 'key' => 'field_tr_c2_image',   'label' => 'Imagen',    'name' => 'tr_c2_image',   'type' => 'image',    'return_format' => 'array', 'preview_size' => 'medium' ),
+        array( 'key' => 'field_tr_c2_content', 'label' => 'Testimonio','name' => 'tr_c2_content', 'type' => 'textarea', 'rows' => 12, 'default_value' => '' ),
+        array( 'key' => 'field_tr_c2_author',  'label' => 'Autor',     'name' => 'tr_c2_author',  'type' => 'text',     'default_value' => '' ),
+        array( 'key' => 'field_tr_c2_role',    'label' => 'Cargo',     'name' => 'tr_c2_role',    'type' => 'text',     'default_value' => '' ),
+
+        // ── TAB: Caso 3 ────────────────────────────────────────
+        nmh_acf_tab( 'field_tr_tab_c3', 'Caso 3' ),
+        array( 'key' => 'field_tr_c3_title',   'label' => 'Título',    'name' => 'tr_c3_title',   'type' => 'text',     'default_value' => 'Boots on the Ground: How Ekin Secured an 11% Discount and Saved a Mortgage During the August Shutdown.' ),
+        array( 'key' => 'field_tr_c3_image',   'label' => 'Imagen',    'name' => 'tr_c3_image',   'type' => 'image',    'return_format' => 'array', 'preview_size' => 'medium' ),
+        array( 'key' => 'field_tr_c3_content', 'label' => 'Testimonio','name' => 'tr_c3_content', 'type' => 'textarea', 'rows' => 12, 'default_value' => '' ),
+        array( 'key' => 'field_tr_c3_author',  'label' => 'Autor',     'name' => 'tr_c3_author',  'type' => 'text',     'default_value' => '' ),
+        array( 'key' => 'field_tr_c3_role',    'label' => 'Cargo',     'name' => 'tr_c3_role',    'type' => 'text',     'default_value' => '' ),
+
+    ),
+    'location' => array( array( array(
+        'param'    => 'page_template',
+        'operator' => '==',
+        'value'    => 'page-templates/page-track-record.php',
+    ) ) ),
+    'menu_order' => 0,
+) );

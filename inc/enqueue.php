@@ -176,6 +176,24 @@ add_action( 'wp_enqueue_scripts', function () {
 } );
 
 
+// ── Track Record ───────────────────────────────────────────────────────────
+
+add_action( 'wp_enqueue_scripts', function () {
+
+    if ( ! is_page_template( 'page-templates/page-track-record.php' ) ) {
+        return;
+    }
+
+    wp_enqueue_style(
+        'nmh-track-record',
+        get_template_directory_uri() . '/assets/css/page-track-record.css',
+        array( 'nmh-site' ),
+        filemtime( get_template_directory() . '/assets/css/page-track-record.css' )
+    );
+
+} );
+
+
 // ── Páginas legales ────────────────────────────────────────────────────────
 
 add_action( 'wp_enqueue_scripts', function () {
