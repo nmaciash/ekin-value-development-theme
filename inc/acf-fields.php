@@ -290,6 +290,17 @@ acf_add_local_field_group( array(
             'placeholder'  => '[nmh-contact-forms]',
         ),
 
+        // ── TAB: Oficina ────────────────────────────────────────
+        nmh_acf_tab( 'field_con_tab_office', 'Oficina' ),
+        array(
+            'key'           => 'field_con_address',
+            'label'         => 'Dirección de la oficina',
+            'name'          => 'con_address',
+            'type'          => 'text',
+            'default_value' => 'C. Marqués de Larios, 9, Distrito Centro, 29015 Málaga',
+            'instructions'  => 'Aparece en el footer y en la página de contacto.',
+        ),
+
     ),
     'location' => array( array( array(
         'param'    => 'page_template',

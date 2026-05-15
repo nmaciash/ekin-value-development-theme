@@ -8,6 +8,7 @@ get_header();
 $hero_title      = nmh_get_acf_field( 'con_hero_title',      'Get in Touch' );
 $hero_desc       = nmh_get_acf_field( 'con_hero_desc',       'Write to us, call us or visit us in Marbella. We are available Monday to Friday, 9:00 to 18:00. We would love to meet you, hear your goals and help you move forward.' );
 $hero_bold       = nmh_get_acf_field( 'con_hero_bold',       'Your next chapter starts here.' );
+$office_address  = nmh_get_acf_field( 'con_address',         'C. Marqués de Larios, 9, Distrito Centro, 29015 Málaga' );
 $form_title      = nmh_get_acf_field( 'con_form_title',      'How can we help you?' );
 $form_shortcode  = nmh_get_acf_field( 'con_form_shortcode',  '' );
 ?>
@@ -21,9 +22,13 @@ $form_shortcode  = nmh_get_acf_field( 'con_form_shortcode',  '' );
                     <p class="hero-eyebrow"><span class="num">—</span> EKIN Value Development</p>
                     <h1 class="custom-hero-title"><?php echo esc_html( $hero_title ); ?></h1>
                     <p class="custom-hero-description"><?php echo esc_html( $hero_desc ); ?></p>
+                    <?php if ( $office_address ) : ?>
+                        <p class="contact-address custom-hero-description"><?php echo esc_html( $office_address ); ?></p>
+                    <?php endif; ?>
                     <?php if ( $hero_bold ) : ?>
                         <p><strong><?php echo esc_html( $hero_bold ); ?></strong></p>
                     <?php endif; ?>
+                    
                 </div>
             </div>
         </div>

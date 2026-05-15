@@ -6,6 +6,11 @@
             <div>
                 <div class="footer-mark">ekin</div>
                 <p class="footer-tag">Real estate investment, engineered through better decisions.</p>
+                <?php
+                $con_posts      = get_posts( array( 'post_type' => 'page', 'meta_key' => '_wp_page_template', 'meta_value' => 'page-templates/page-contacto.php', 'posts_per_page' => 1, 'fields' => 'ids' ) );
+                $footer_address = ( $con_posts && function_exists( 'get_field' ) ) ? get_field( 'con_address', $con_posts[0] ) : '';
+                if ( ! $footer_address ) { $footer_address = 'C. Marqués de Larios, 9, Distrito Centro, 29015 Málaga'; }
+                ?>
                 <div class="footer-contact">
                     <a href="mailto:info@ekinvaluedevelopment.com">
                         <strong>info@ekinvaluedevelopment.com</strong>
@@ -15,6 +20,10 @@
                         <strong>+34 672 972 590</strong>
                         <span>Direct line</span>
                     </a>
+                    <span>
+                        <strong><?php echo esc_html( $footer_address ); ?></strong>
+                        <span>Office</span>
+                    </span>
                 </div>
             </div>
 
