@@ -81,6 +81,14 @@ As the CEO of a German engineering firm, I am accustomed to technical rigor, but
                     <div class="tr-img-col">
                         <?php if ( $img_url ) : ?>
                         <img class="tr-img" src="<?php echo $img_url; ?>" alt="<?php echo $img_alt; ?>" />
+                        <?php if ( $case['author'] ) : ?>
+                        <div class="tr-img-caption">
+                            <strong><?php echo esc_html( $case['author'] ); ?></strong>
+                            <?php if ( $case['role'] ) : ?>
+                            <span><?php echo esc_html( $case['role'] ); ?></span>
+                            <?php endif; ?>
+                        </div>
+                        <?php endif; ?>
                         <?php else : ?>
                         <div class="tr-img-placeholder"></div>
                         <?php endif; ?>
@@ -114,14 +122,6 @@ As the CEO of a German engineering firm, I am accustomed to technical rigor, but
                                 }
                                 ?>
                             </div>
-                            <?php if ( $case['author'] ) : ?>
-                            <footer class="tr-panel-author">
-                                <strong><?php echo esc_html( $case['author'] ); ?></strong>
-                                <?php if ( $case['role'] ) : ?>
-                                <span><?php echo esc_html( $case['role'] ); ?></span>
-                                <?php endif; ?>
-                            </footer>
-                            <?php endif; ?>
                             <?php else : ?>
                             <p class="tr-panel-empty">Content coming soon.</p>
                             <?php endif; ?>
